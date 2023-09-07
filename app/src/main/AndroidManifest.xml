@@ -13,16 +13,35 @@
         android:theme="@style/Theme.VisionCart"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".offers"
             android:exported="false" />
         <activity
-            android:name=".Home"
-            android:exported="true">
+            android:name=".viewRequest"
+            android:exported="false" />
+        <activity
+            android:name=".sendRequest"
+            android:exported="false" />
+        <activity
+            android:name=".activities.helpDesk"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".activities.HomePage"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Home"
+            android:exported="false">
+
         </activity>
     </application>
 

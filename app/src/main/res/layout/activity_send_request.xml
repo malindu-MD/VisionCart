@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".sendRequest">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="2">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="375dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="9dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:paddingTop="5dp"
+                android:text="REQUEST FORM"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/message"
+                android:layout_width="341dp"
+                android:layout_height="128dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="25dp"
+                android:background="#f3f3f3"
+                android:paddingLeft="7dp"
+                android:paddingTop="7dp"
+                android:text="Message:"
+                android:textColor="#4C4D4F"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tos3" />
+
+            <TextView
+                android:id="@+id/tos"
+                android:layout_width="341dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginEnd="26dp"
+                android:background="#f3f3f3"
+                android:paddingLeft="7dp"
+                android:paddingTop="7dp"
+                android:text="Mobile No:"
+                android:textColor="#4C4D4F"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="112dp" />
+
+            <TextView
+                android:id="@+id/tos2"
+                android:layout_width="341dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="25dp"
+                android:background="#f3f3f3"
+                android:paddingLeft="7dp"
+                android:paddingTop="7dp"
+                android:text="Date:"
+                android:textColor="#4C4D4F"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tos" />
+
+            <TextView
+                android:id="@+id/tos3"
+                android:layout_width="341dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="25dp"
+                android:background="#f3f3f3"
+                android:paddingLeft="7dp"
+                android:paddingTop="7dp"
+                android:text="Time:"
+                android:textColor="#4C4D4F"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tos2" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_weight="1">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="#0C2752"
+            app:cardCornerRadius="10dp">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/untitled_design__8_" />
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>
