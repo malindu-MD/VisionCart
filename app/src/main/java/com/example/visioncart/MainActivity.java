@@ -128,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
                     exitFromApp();
                 }
                 else {
+
     //commewnt6 bhhbhad absbsj h sbnsbnsbsn
 
                     switch (numberOfClicks) {
