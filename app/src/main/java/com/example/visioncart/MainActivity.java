@@ -129,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
     //commewnt6 bhhbhad absbsj h sbnsbnsbsn
+
                     switch (numberOfClicks) {
                         case 1:
                             String to;
@@ -209,4 +210,11 @@ public class MainActivity extends AppCompatActivity {
         }
         IsInitialVoiceFinshed=true;
     }
+
+    public void newfun(){
+
+    }
+
+
+
 }
