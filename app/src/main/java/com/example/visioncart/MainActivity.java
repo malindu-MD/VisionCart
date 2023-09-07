@@ -212,9 +212,7 @@ public class MainActivity extends AppCompatActivity {
         IsInitialVoiceFinshed=true;
     }
 
-    public void newfun(){
-//cc
-    }
+
 
 
 
