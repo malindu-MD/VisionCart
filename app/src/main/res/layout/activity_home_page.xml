@@ -110,7 +110,7 @@
                         <ImageView
                             android:id="@+id/imageView6"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="125dp"
                             app:srcCompat="@drawable/help" />
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
