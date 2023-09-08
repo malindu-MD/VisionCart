@@ -13,6 +13,19 @@
         android:theme="@style/Theme.VisionCart"
         tools:targetApi="31">
         <activity
+            android:name=".addOffers"
+            android:exported="false" />
+        <activity
+            android:name=".volunteerLogin"
+            android:exported="false" />
+
+        <activity
+            android:name=".signUp"
+            android:exported="false" />
+        <activity
+            android:name=".login"
+            android:exported="false" />
+        <activity
             android:name=".offers"
             android:exported="false" />
         <activity
@@ -24,8 +37,6 @@
         <activity
             android:name=".activities.helpDesk"
             android:exported="false" />
-
-
         <activity
             android:name=".activities.HomePage"
             android:exported="true" >
