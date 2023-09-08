@@ -13,12 +13,14 @@
         android:theme="@style/Theme.VisionCart"
         tools:targetApi="31">
         <activity
+            android:name=".adminPanel"
+            android:exported="false" />
+        <activity
             android:name=".addOffers"
             android:exported="false" />
         <activity
             android:name=".volunteerLogin"
             android:exported="false" />
-
         <activity
             android:name=".signUp"
             android:exported="false" />
@@ -39,7 +41,7 @@
             android:exported="false" />
         <activity
             android:name=".activities.HomePage"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -51,9 +53,7 @@
             android:exported="false" />
         <activity
             android:name=".Home"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"></activity>
     </application>
 
 </manifest>
