@@ -30,6 +30,7 @@
             android:layout_weight="1">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/homeCArdOffer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="#0C2752"

@@ -3,14 +3,18 @@ package com.example.visioncart;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
+import android.widget.Button;
 
+import com.example.visioncart.activities.HomePage;
 import com.example.visioncart.adapters.MyAdapter;
 import com.example.visioncart.models.Offers;
 import com.google.firebase.database.DataSnapshot;
@@ -22,13 +26,14 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class offersPage extends AppCompatActivity implements View.OnClickListener,TextToSpeech.OnInitListener {
+public class offersPage extends AppCompatActivity implements View.OnClickListener,View.OnLongClickListener,TextToSpeech.OnInitListener {
 
     RecyclerView recyclerView;
     private TextToSpeech tts;
     DatabaseReference database;
     MyAdapter myAdapter;
     ArrayList<Offers> list;
+    private CardView home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +49,19 @@ public class offersPage extends AppCompatActivity implements View.OnClickListene
 
         list = new ArrayList<>();
         getProductData();
+
+        home = (CardView)findViewById(R.id.homeCArdOffer);
+
+        home.setOnClickListener(this);
+        home.setOnLongClickListener(this);
+//        home.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(offersPage.this, HomePage.class);
+//                startActivity(intent);
+//            }
+//        });
 
     }
     private void getProductData(){
@@ -115,8 +133,23 @@ public class offersPage extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-
+        String text = "";
+        if (v.getId() == R.id.homeCArdOffer){
+            text = "You clicked Home!";
+        }
+        speak(text);
     }
 
 
+    @Override
+    public boolean onLongClick(View v) {
+        Intent intent;
+        if (v.getId() == R.id.msgBox) {
+            intent = new Intent(this, HomePage.class);
+            startActivity(intent);
+            return true;
+        } else {
+            throw new IllegalArgumentException("Undefined Clicked");
+        }
+    }
 }
