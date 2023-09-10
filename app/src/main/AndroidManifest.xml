@@ -13,11 +13,16 @@
         android:theme="@style/Theme.VisionCart"
         tools:targetApi="31">
         <activity
-            android:name=".adminPanel"
+            android:name=".viewOfferAdmin"
             android:exported="false" />
         <activity
-            android:name=".addOffers"
+            android:name=".addofferpage"
             android:exported="false" />
+        <activity
+            android:name=".adminPanel"
+            android:exported="false">
+
+        </activity>
         <activity
             android:name=".volunteerLogin"
             android:exported="false" />
@@ -28,7 +33,7 @@
             android:name=".login"
             android:exported="false" />
         <activity
-            android:name=".offers"
+            android:name=".offersPage"
             android:exported="false" />
         <activity
             android:name=".viewRequest"
@@ -53,7 +58,7 @@
             android:exported="false" />
         <activity
             android:name=".Home"
-            android:exported="false"></activity>
+            android:exported="false" />
     </application>
 
 </manifest>

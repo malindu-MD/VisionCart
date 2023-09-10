@@ -20,19 +20,21 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-                <TextView
+            <TextView
                 android:id="@+id/textView2"
                 android:layout_width="375dp"
                 android:layout_height="52dp"
                 android:layout_marginStart="9dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginBottom="26dp"
                 android:paddingTop="5dp"
                 android:text="FIND VOLUNTEER"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/cardView2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -42,10 +44,12 @@
                 android:layout_width="335dp"
                 android:layout_height="223dp"
                 android:layout_marginStart="29dp"
-                android:layout_marginTop="26dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginEnd="28dp"
+                android:layout_marginBottom="10dp"
                 android:backgroundTint="#0C2752"
                 app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/cardViews2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2">
@@ -68,11 +72,14 @@
                 android:layout_width="335dp"
                 android:layout_height="223dp"
                 android:layout_marginStart="28dp"
-                android:layout_marginTop="34dp"
-                android:layout_marginEnd="28dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="20dp"
                 android:backgroundTint="#0C2752"
                 app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView2">
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
-    tools:context=".offers">
+    tools:context=".offersPage">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,7 +20,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/offerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_margin="15dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -29,6 +30,7 @@
             android:layout_weight="1">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/homeCArdOffer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="#0C2752"

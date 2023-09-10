@@ -20,7 +20,7 @@ import java.util.Locale;
 
 public class Home extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener, TextToSpeech.OnInitListener {
 
-    private TextToSpeech tts;
+    private TextToSpeech tts; //meka
    private RelativeLayout msgBox;
     private RelativeLayout phoneMngr ;
     private RelativeLayout timeDate;
@@ -90,7 +90,7 @@ public class Home extends AppCompatActivity implements View.OnClickListener, Vie
     }
 
     @Override
-    public void onInit(int status) {
+    public void onInit(int status) { // page ekata enakot ena eka
         if (status == TextToSpeech.SUCCESS) {
             tts.setLanguage(Locale.UK);
             tts.speak("Welcome to Vision Cart. Single tap for details and long press to open an activity.", TextToSpeech.QUEUE_FLUSH, null, null);
