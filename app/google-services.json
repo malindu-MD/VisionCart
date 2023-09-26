@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "44247922695",
+    "firebase_url": "https://visioncartnewone-default-rtdb.firebaseio.com",
+    "project_id": "visioncartnewone",
+    "storage_bucket": "visioncartnewone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44247922695:android:bedc62094b05563f8252a2",
+        "android_client_info": {
+          "package_name": "com.example.gffffgfg"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT6cM5gxuOl7sJXVTGZFI0vfHOcIpIIQ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44247922695:android:0d1a1a5abc9b82188252a2",
+        "android_client_info": {
+          "package_name": "com.example.visioncart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT6cM5gxuOl7sJXVTGZFI0vfHOcIpIIQ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44247922695:android:a9a2d07bc7356a698252a2",
+        "android_client_info": {
+          "package_name": "org.tensorflow.lite.examples.classification"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT6cM5gxuOl7sJXVTGZFI0vfHOcIpIIQ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

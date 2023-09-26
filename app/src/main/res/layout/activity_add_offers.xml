@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.tensorflow.blindhelp.examples.classification.addOffers">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="332dp"
+        android:layout_height="332dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="222dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="#0D293E"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="121dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="2dp"
+                android:text="Duration"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/editText"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="121dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="39dp"
+                android:layout_marginEnd="2dp"
+                android:text="Product Name"
+                android:textColor="#FFFFFF"
+                app:layout_constraintEnd_toStartOf="@+id/editText3"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="121dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="2dp"
+                android:text="Offer Details"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toStartOf="@+id/editText2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="177dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:autofillHints=""
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/editText2"
+                android:layout_width="177dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView8"
+                app:layout_constraintTop_toBottomOf="@+id/editText"
+                tools:ignore="SpeakableTextPresentCheck">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="177dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText3"
+                tools:ignore="SpeakableTextPresentCheck">
+
+            </EditText>
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="164dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="84dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="84dp"
+                android:backgroundTint="#F3E9E9"
+                android:text="Submit"
+                android:textColor="#0D293E"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:cornerRadius="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

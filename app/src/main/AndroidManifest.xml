@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-sdk />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher_background"
+        android:label="@string/activity_name_classification"
+        android:roundIcon="@drawable/ic_launcher_background"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.ClassifierActivity"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.activities.HomePage"
+            android:label="Vision Cart"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.HomePage"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.request"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.requestcard"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.VDashboard"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.addOffers"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.adminPanel"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.signUp"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.offers"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.viewRequest"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.sendRequest"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.activities.helpDesk"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.Home"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.viewOfferAdmin"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.addofferpage"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.offersPage"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.volunteerLogin"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.View_WishList_Page"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.Add_WishList"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.ShoppingList"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.activities.ShoppingList_page"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.activities.Camera"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.activities.CaptureActions"
+            android:screenOrientation="fullSensor"
+            android:stateNotNeeded="true"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+    </application>
+
+</manifest>
