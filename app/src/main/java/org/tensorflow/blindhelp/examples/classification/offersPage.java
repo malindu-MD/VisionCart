@@ -13,6 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.tensorflow.blindhelp.examples.classification.activities.HomePage;
 import org.tensorflow.blindhelp.examples.classification.adapters.MyAdapter;
 import org.tensorflow.blindhelp.examples.classification.models.Offers;
 import org.tensorflow.lite.examples.classification.R;

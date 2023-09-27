@@ -51,16 +51,18 @@
                     android:layout_marginTop="5dp"
                     app:srcCompat="@drawable/whatsapp_image_2023_09_07_at_19_45_18" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:weightSum="3"
-                android:orientation="vertical">
+                android:layout_height="388dp"
+                android:orientation="vertical"
+                android:weightSum="3">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
                     android:layout_weight="1"
+                    android:orientation="horizontal"
                     android:weightSum="2">
 
                     <LinearLayout
@@ -76,9 +78,9 @@
                             android:layout_marginLeft="5dp"
                             android:backgroundTint="#0C2752"
                             app:cardCornerRadius="15dp"
+                            android:id="@+id/qrCode"
                             app:contentPaddingBottom="20dp"
                             app:contentPaddingLeft="25dp"
-                            android:id="@+id/qrCode"
                             app:contentPaddingRight="25dp"
                             app:contentPaddingTop="20dp">
 
@@ -103,26 +105,35 @@
                             android:layout_marginRight="5dp"
                             android:backgroundTint="#0C2752"
                             app:cardCornerRadius="15dp"
-                            app:contentPaddingBottom="20dp"
                             android:id="@+id/help"
+                            app:contentPaddingBottom="20dp"
                             app:contentPaddingLeft="25dp"
                             app:contentPaddingRight="25dp"
                             app:contentPaddingTop="20dp">
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/imageView6"
+                                    android:layout_width="73dp"
+                                    android:layout_height="84dp"
+                                    app:srcCompat="@drawable/help"
+                                    tools:layout_editor_absoluteX="16dp"
+                                    tools:layout_editor_absoluteY="-8dp" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                            <ImageView
-                                android:id="@+id/imageView141"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/help" />
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
                     android:layout_weight="1"
+                    android:orientation="horizontal"
                     android:weightSum="2">
 
                     <LinearLayout
@@ -139,8 +150,8 @@
                             android:backgroundTint="#0C2752"
                             app:cardCornerRadius="15dp"
                             app:contentPaddingBottom="20dp"
-                            android:id="@+id/cash"
                             app:contentPaddingLeft="25dp"
+                            android:id="@+id/cash"
                             app:contentPaddingRight="25dp"
                             app:contentPaddingTop="20dp">
 
@@ -166,7 +177,6 @@
                             android:backgroundTint="#0C2752"
                             app:cardCornerRadius="15dp"
                             android:id="@+id/toDo"
-
                             app:contentPaddingBottom="20dp"
                             app:contentPaddingLeft="25dp"
                             app:contentPaddingRight="25dp"
@@ -180,11 +190,12 @@
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
                     android:layout_weight="1"
+                    android:orientation="horizontal"
                     android:weightSum="2">
 
                     <LinearLayout
@@ -195,23 +206,22 @@
                         android:padding="10dp">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/cart"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="5dp"
                             android:backgroundTint="#0C2752"
                             app:cardCornerRadius="15dp"
-                            android:id="@+id/offers"
-
                             app:contentPaddingBottom="20dp"
                             app:contentPaddingLeft="25dp"
                             app:contentPaddingRight="25dp"
                             app:contentPaddingTop="20dp">
 
                             <ImageView
-                                android:id="@+id/imageView11"
+                                android:id="@+id/imageView8"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/discouint" />
+                                app:srcCompat="@drawable/untitled_design__9_" />
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
 
@@ -227,23 +237,42 @@
                             android:layout_height="match_parent"
                             android:layout_marginRight="5dp"
                             android:backgroundTint="#0C2752"
+                            android:id="@+id/offers"
+
                             app:cardCornerRadius="15dp"
-                            android:id="@+id/profile"
                             app:contentPaddingBottom="20dp"
                             app:contentPaddingLeft="25dp"
                             app:contentPaddingRight="25dp"
                             app:contentPaddingTop="20dp">
 
                             <ImageView
-                                android:id="@+id/imageView8"
+                                android:id="@+id/imageView12"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                app:srcCompat="@drawable/acc" />
+                                app:srcCompat="@drawable/discount" />
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:backgroundTint="#0C2752"
+                app:cardCornerRadius="15dp"
+                app:contentPaddingBottom="20dp"
+                app:contentPaddingLeft="25dp"
+                app:contentPaddingRight="25dp"
+                android:layout_marginLeft="5dp"
+                app:contentPaddingTop="20dp">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="118dp"
+                    app:srcCompat="@drawable/voice" />
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
 
 

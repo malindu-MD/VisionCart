@@ -27,7 +27,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener,
     private CardView  cash;
     private CardView  toDo;
     private CardView  offers;
-    private CardView  profile;
+    private CardView  cart;
 
 
 
@@ -48,21 +48,21 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener,
         cash=findViewById(R.id.cash);
         toDo=findViewById(R.id.toDo);
         offers=findViewById(R.id.offers);
-        profile=findViewById(R.id.profile);
+        cart=findViewById(R.id.cart);
 
         qrCode.setOnClickListener(this);
         help.setOnClickListener(this);
         cash.setOnClickListener(this);
         toDo.setOnClickListener(this);
         offers.setOnClickListener(this);
-        profile.setOnClickListener(this);
+        cart.setOnClickListener(this);
 
         qrCode.setOnLongClickListener(this);
         help.setOnLongClickListener(this);
         cash.setOnLongClickListener(this);
         toDo.setOnLongClickListener(this);
         offers.setOnLongClickListener(this);
-        profile.setOnLongClickListener(this);
+        cart.setOnLongClickListener(this);
 
 
     }
@@ -80,8 +80,8 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener,
             text = "You clicked Shopping List!";
         }else if (view.getId() == R.id.offers) {
             text = "You clicked Discount Item List";
-        }else if (view.getId() == R.id.profile) {
-            text = "You clicked My Profile";
+        }else if (view.getId() == R.id.cart) {
+            text = "You clicked My Cart";
         }
         else {
             throw new IllegalArgumentException("Undefined Clicked");
@@ -114,6 +114,11 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener,
             return true;
         }
         else if (view.getId() == R.id.cash) {
+            intent = new Intent(this, ClassifierActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        else if (view.getId() == R.id.cart) {
             intent = new Intent(this, ClassifierActivity.class);
             startActivity(intent);
             return true;

@@ -15,6 +15,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.tensorflow.blindhelp.examples.classification.activities.HomePage;
 import org.tensorflow.blindhelp.examples.classification.adapters.wishListAdapter;
 import org.tensorflow.blindhelp.examples.classification.models.WishList;
 import org.tensorflow.lite.examples.classification.R;

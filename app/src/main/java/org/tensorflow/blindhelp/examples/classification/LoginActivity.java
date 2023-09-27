@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.tensorflow.blindhelp.examples.classification.activities.HomePage;
 import org.tensorflow.lite.examples.classification.R;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{

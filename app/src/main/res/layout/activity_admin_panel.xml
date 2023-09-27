@@ -319,7 +319,7 @@
                         android:padding="10dp">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/offerbutton"
+                            android:id="@+id/cart"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="5dp"
