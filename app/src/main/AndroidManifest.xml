@@ -15,7 +15,12 @@
         android:roundIcon="@drawable/ic_launcher_background"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.test"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.volunteerLogin"
+            android:exported="false" />
         <activity
             android:name="org.tensorflow.blindhelp.examples.classification.ClassifierActivity"
             android:exported="false" />
@@ -29,9 +34,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="org.tensorflow.blindhelp.examples.classification.HomePage"
-            android:exported="false" />
         <activity
             android:name="org.tensorflow.blindhelp.examples.classification.request"
             android:exported="false" />
@@ -78,7 +80,7 @@
             android:name="org.tensorflow.blindhelp.examples.classification.offersPage"
             android:exported="false" />
         <activity
-            android:name="org.tensorflow.blindhelp.examples.classification.volunteerLogin"
+            android:name="org.tensorflow.blindhelp.examples.classification.volunteerregister"
             android:exported="false" />
         <activity
             android:name="org.tensorflow.blindhelp.examples.classification.View_WishList_Page"

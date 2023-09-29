@@ -39,6 +39,46 @@
                 android:orientation="vertical"
                 android:layout_height="match_parent">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                   <androidx.constraintlayout.widget.ConstraintLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="70dp">
+
+
+                       <TextView
+                           android:id="@+id/textView11"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginStart="16dp"
+                           android:text="Hi Malindu Sooriyaarachchi"
+                           android:textColor="#000000"
+                           android:textFontWeight="bold"
+                           android:textSize="20sp"
+                           app:layout_constraintStart_toStartOf="parent"
+                           app:layout_constraintTop_toTopOf="parent" />
+
+                       <TextView
+                           android:id="@+id/textView13"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginStart="16dp"
+                           android:textFontWeight="bold"
+                           android:text="WelCome Back"
+                           app:layout_constraintBottom_toBottomOf="parent"
+                           app:layout_constraintStart_toStartOf="parent"
+                           app:layout_constraintTop_toBottomOf="@+id/textView11"
+                           app:layout_constraintVertical_bias="0.333" />
+                   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+                </LinearLayout>
+
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -57,8 +97,8 @@
                         tools:layout_editor_absoluteY="84dp">
 
                         <ImageView
-                            android:layout_width="0.7in"
-                            android:layout_height="0.7in"
+                            android:layout_width="0.6in"
+                            android:layout_height="0.6in"
 
 
                             android:layout_margin="5dp"
@@ -73,15 +113,14 @@
                             android:layout_gravity="center"
                             android:layout_marginRight="1dp"
                             android:paddingLeft="1.4in"
-                            android:textColor="@color/black"
-
                             android:text="Total Points "
 
                             android:textAlignment="center"
 
+                            android:textColor="@color/black"
+
                             android:textSize="25sp"
                             android:textStyle="bold" />
-
 
 
                     </androidx.cardview.widget.CardView>
@@ -123,8 +162,8 @@
                                 android:layout_weight="1">
 
                                 <ImageView
-                                    android:layout_width="0.7in"
-                                    android:layout_height="0.7in"
+                                    android:layout_width="0.6in"
+                                    android:layout_height="0.6in"
 
 
                                     android:layout_margin="5dp"
@@ -154,7 +193,6 @@
                                     android:layout_height="match_parent">
 
 
-
                                     <TextView
                                         android:id="@+id/textView4"
                                         android:layout_width="wrap_content"
@@ -162,13 +200,14 @@
                                         android:layout_height="wrap_content"
 
                                         android:layout_gravity="center"
-                                        android:layout_marginTop="35dp"
+                                        android:layout_marginTop="36dp"
                                         android:text="View Request"
                                         android:textAlignment="center"
                                         android:textColor="@color/black"
                                         android:textSize="25sp"
                                         android:textStyle="bold"
                                         app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.809"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toTopOf="parent" />
                                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -216,8 +255,8 @@
                                 android:layout_weight="1">
 
                                 <ImageView
-                                    android:layout_width="0.7in"
-                                    android:layout_height="0.7in"
+                                    android:layout_width="0.6in"
+                                    android:layout_height="0.6in"
 
 
                                     android:layout_margin="5dp"
