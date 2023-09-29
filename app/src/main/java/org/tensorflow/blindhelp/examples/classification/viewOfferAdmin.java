@@ -76,17 +76,14 @@ public class viewOfferAdmin extends AppCompatActivity {
                         // and pass the data to the UpdateOfferActivity for editing.
                         String pname = list.get(position).getPname();
                         String offerDetails = list.get(position).getOfferDetails();
-                        String fromMonth = list.get(position).getFromMonth();
-                        String fromDay = list.get(position).getFromday();
-                        String toMonth = list.get(position).getToMonth();
-                        String toDay = list.get(position).getToDay();
+                        String dateStart = list.get(position).getDateStart();
+                        String dateEnd = list.get(position).getDateEnd();
+
 
                         Intent intent = new Intent(viewOfferAdmin.this, addofferpage.class);
                         intent.putExtra("productName", pname);
-                        intent.putExtra("fromMonth", fromMonth);
-                        intent.putExtra("fromDay", fromDay);
-                        intent.putExtra("toMonth", toMonth);
-                        intent.putExtra("toDay", toDay);
+                        intent.putExtra("dateStart", dateStart);
+                        intent.putExtra("dateEnd", dateEnd);
                         intent.putExtra("offerDetails", offerDetails);
                         startActivity(intent);
                     }

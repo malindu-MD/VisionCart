@@ -46,8 +46,8 @@ public class AdminOfferAdapter extends RecyclerView.Adapter<AdminOfferAdapter.My
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Offers offers = list.get(position);
         holder.pname.setText(offers.getPname());
-        holder.startDate.setText(offers.getFromMonth() + offers.getFromday());
-        holder.endDate.setText(offers.getToMonth() + offers.getToDay());
+        holder.startDate.setText(offers.getDateStart());
+        holder.endDate.setText(offers.getDateEnd());
         holder.offerDet.setText(offers.getOfferDetails());
 
         // Set a click listener for the update ImageButton

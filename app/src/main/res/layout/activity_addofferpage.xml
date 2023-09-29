@@ -81,7 +81,7 @@
                 android:layout_width="173dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="13dp"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="10dp"
                 android:autofillHints=""
                 android:textColor="#F4F1F1"
@@ -97,12 +97,12 @@
                 android:layout_width="177dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="10dp"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
-                app:layout_constraintTop_toBottomOf="@+id/tomonmth"
+                app:layout_constraintTop_toBottomOf="@+id/dateEnd"
                 tools:ignore="SpeakableTextPresentCheck">
 
             </EditText>
@@ -125,51 +125,56 @@
                 app:layout_constraintHorizontal_bias="0.523"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <Spinner
-                android:id="@+id/monthfrom"
-                android:layout_width="100dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="29dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="12dp"
-                android:background="#F4EFEF"
-                app:layout_constraintEnd_toStartOf="@+id/fromday"
+            <TextView
+                android:id="@+id/AdateStart"
+                android:layout_width="134dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="53dp"
+                android:layout_marginTop="20dp"
+
+                android:layout_marginEnd="2dp"
+                android:text="TextView"
+                android:textColor="#EDEDED"
+                app:layout_constraintEnd_toStartOf="@+id/dateStart"
                 app:layout_constraintStart_toEndOf="@+id/textView7"
                 app:layout_constraintTop_toBottomOf="@+id/pname" />
 
-            <Spinner
-                android:id="@+id/tomonmth"
-                android:layout_width="100dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="29dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="14dp"
-                android:background="#F1ECEC"
-                app:layout_constraintEnd_toStartOf="@+id/today"
+            <TextView
+                android:id="@+id/AdateEnd"
+                android:layout_width="134dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="53dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="2dp"
+                android:text="TextView"
+                android:textColor="#EDEDED"
+                app:layout_constraintEnd_toStartOf="@+id/dateEnd"
                 app:layout_constraintStart_toEndOf="@+id/textView9"
-                app:layout_constraintTop_toBottomOf="@+id/monthfrom" />
+                app:layout_constraintTop_toBottomOf="@+id/AdateStart" />
 
-            <Spinner
-                android:id="@+id/fromday"
-                android:layout_width="71dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="10dp"
-                android:background="#FFFFFF"
+            <ImageView
+                android:id="@+id/dateStart"
+                android:layout_width="43dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="11dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/monthfrom"
-                app:layout_constraintTop_toBottomOf="@+id/pname" />
+                app:layout_constraintStart_toEndOf="@+id/AdateStart"
+                app:layout_constraintTop_toBottomOf="@+id/pname"
+                app:srcCompat="@drawable/icons8_calendar_50" />
 
-            <Spinner
-                android:id="@+id/today"
-                android:layout_width="71dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:background="#F8F4F4"
+            <ImageView
+                android:id="@+id/dateEnd"
+                android:layout_width="43dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="11dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/tomonmth"
-                app:layout_constraintTop_toBottomOf="@+id/fromday" />
+                app:layout_constraintStart_toEndOf="@+id/AdateEnd"
+                app:layout_constraintTop_toBottomOf="@+id/dateStart"
+                app:srcCompat="@drawable/icons8_calendar_50" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
