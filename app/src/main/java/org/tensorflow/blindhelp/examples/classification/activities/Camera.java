@@ -1,33 +1,33 @@
 package org.tensorflow.blindhelp.examples.classification.activities;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.speech.tts.TextToSpeech;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
-import org.tensorflow.blindhelp.examples.classification.models.CartList;
-import org.tensorflow.lite.examples.classification.R;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import org.tensorflow.blindhelp.examples.classification.models.CartList;
+import org.tensorflow.lite.examples.classification.R;
+
 import java.util.Locale;
 
-public class Camera extends AppCompatActivity implements View.OnClickListener,View.OnLongClickListener,TextToSpeech.OnInitListener {
+public class Camera extends AppCompatActivity implements View.OnClickListener, View.OnLongClickListener, TextToSpeech.OnInitListener {
 
-    // Declare a variable to store the scanned data
+    private static final long SCAN_TIMEOUT = 7000; // 4 seconds
+
     private String scannedData;
     private TextToSpeech tts;
     private TextView resultID;
@@ -36,7 +36,7 @@ public class Camera extends AppCompatActivity implements View.OnClickListener,Vi
     private CardView cartID;
 
     DatabaseReference cartListDbRef;
-
+    private Handler scanTimeoutHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,22 +52,56 @@ public class Camera extends AppCompatActivity implements View.OnClickListener,Vi
         scanID.setOnClickListener(this);
         cartID.setOnClickListener(this);
 
-
         scanID.setOnLongClickListener(this);
         homeID.setOnLongClickListener(this);
         cartID.setOnLongClickListener(this);
 
         tts = new TextToSpeech(this, this);
-        scanCode();
+        tts.setLanguage(Locale.UK);
 
+        scanCode();
         cartListDbRef = FirebaseDatabase.getInstance().getReference().child("CartList");
+
+        scanTimeoutHandler = new Handler(Looper.getMainLooper());
+        startScanTimeout(); // Start the initial timeout
+
+        // Schedule a recurring timeout task
+        final Runnable scanTimeoutRunnable = new Runnable() {
+            @Override
+            public void run() {
+                if (scannedData == null) {
+                    speak("No scanning detected. Turning room to the other side.");
+                    // Implement code to turn the room to the other side here
+                    startScanTimeout(); // Restart the timeout
+                }
+            }
+        };
+
+        scanTimeoutHandler.postDelayed(scanTimeoutRunnable, SCAN_TIMEOUT); // Schedule the first timeout
     }
 
+    private void startScanTimeout() {
+        // This method is used to restart the timeout handler
+        scanTimeoutHandler.removeCallbacksAndMessages(null);
+        scanTimeoutHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (scannedData == null) {
+                    speak("No scanning detected. Point the camera in another direction");
+                    // Implement code to turn the room to the other side here
+                    startScanTimeout(); // Restart the timeout
+                }
+            }
+        }, SCAN_TIMEOUT);
+    }
+
+    private void cancelScanTimeout() {
+        scanTimeoutHandler.removeCallbacksAndMessages(null);
+    }
 
     private void scanCode() {
-
         IntentIntegrator integrator = new IntentIntegrator(this);
-        integrator.setBeepEnabled(false);
+        integrator.setBeepEnabled(true);
         integrator.setCaptureActivity(CaptureActions.class);
         integrator.setOrientationLocked(false);
         integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
@@ -80,40 +114,16 @@ public class Camera extends AppCompatActivity implements View.OnClickListener,Vi
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null) {
             if (result.getContents() != null) {
-
-                // Store the scanned data in the variable
                 scannedData = result.getContents();
-                speak(scannedData);
-                // Set the scannedData as the text of the resultID TextView
+                cancelScanTimeout(); // Stop the "No scanning detected" message
+                speak("Product is scanned\n" + scannedData);
                 resultID.setText(scannedData);
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setMessage(scannedData);
-
-                builder.setTitle("Scanning Result");
-                builder.setPositiveButton("Scan Again", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        scanCode();
-                        speak("Scanning");
-                    }
-                }).setNegativeButton("finish", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        finish();
-                    }
-                });
-                // Set the dialog's gravity to appear at the top
-                AlertDialog dialog = builder.create();
-                dialog.getWindow().setGravity(Gravity.TOP);
-//                dialog.show();
-
-
-//                AlertDialog dialog = builder.create();
-//                dialog.show();
-
+                cancelScanTimeout();
             } else {
+                cancelScanTimeout();
                 Toast.makeText(this, "No Result", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, HomePage.class);
+                startActivity(intent);
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
@@ -129,11 +139,10 @@ public class Camera extends AppCompatActivity implements View.OnClickListener,Vi
     public void onInit(int i) {
         if (i == TextToSpeech.SUCCESS) {
             tts.setLanguage(Locale.UK);
-            tts.speak("Please Scan product", TextToSpeech.QUEUE_FLUSH, null, null);
-
+            tts.speak("Please Scan product\n", TextToSpeech.QUEUE_FLUSH, null, null);
+            speak("Please Scan product\n" + "Move your camera");
         }
     }
-
 
     @Override
     public void onClick(View view) {
@@ -142,7 +151,6 @@ public class Camera extends AppCompatActivity implements View.OnClickListener,Vi
             text = "Please Long Press to Go Home page";
         } else if (view.getId() == R.id.scanID) {
             text = "Please Long Press to Scan Again ";
-
         } else if (view.getId() == R.id.cartID) {
             text = "Please Long Press to add shopping list";
         } else {
@@ -157,14 +165,12 @@ public class Camera extends AppCompatActivity implements View.OnClickListener,Vi
     public boolean onLongClick(View view) {
         Intent intent;
         if (view.getId() == R.id.scanID) {
-            // Start scanning again
-            scanCode();
-            speak("Scanning");
+            recreate();
+          //  speak("Scanning ");
             return true;
         } else if (view.getId() == R.id.homeid) {
             intent = new Intent(this, HomePage.class);
             startActivity(intent);
-
             return true;
         } else if (view.getId() == R.id.cartID) {
             insertCartListData();
@@ -176,11 +182,19 @@ public class Camera extends AppCompatActivity implements View.OnClickListener,Vi
 
     private void insertCartListData() {
         String cartList = resultID.getText().toString();
-
         CartList cartlist = new CartList(cartList);
-
         cartListDbRef.push().setValue(cartlist);
-        Toast.makeText(Camera.this,"Data Inserted Sucssesfully",Toast.LENGTH_SHORT).show();
+        Toast.makeText(Camera.this, "Data Inserted Successfully", Toast.LENGTH_SHORT).show();
         speak("Product Added to Shopping Cart List");
+    }
+
+    @Override
+    protected void onDestroy() {
+        // Shutdown TTS
+        if (tts != null) {
+            tts.stop();
+            tts.shutdown();
+        }
+        super.onDestroy();
     }
 }
