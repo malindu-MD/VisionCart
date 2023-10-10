@@ -4,9 +4,14 @@
     <uses-sdk />
 
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
+
+
 
     <application
         android:allowBackup="true"
@@ -15,6 +20,10 @@
         android:roundIcon="@drawable/ic_launcher_background"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/file_paths" />
+
         <activity
             android:name="org.tensorflow.blindhelp.examples.classification.test"
             android:exported="false" />
@@ -26,14 +35,9 @@
             android:exported="false" />
         <activity
             android:name="org.tensorflow.blindhelp.examples.classification.activities.HomePage"
+            android:exported="false"
             android:label="Vision Cart"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name="org.tensorflow.blindhelp.examples.classification.request"
             android:exported="false" />
@@ -75,7 +79,13 @@
             android:exported="false" />
         <activity
             android:name="org.tensorflow.blindhelp.examples.classification.addofferpage"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="org.tensorflow.blindhelp.examples.classification.offersPage"
             android:exported="false" />
@@ -105,6 +115,17 @@
             android:screenOrientation="fullSensor"
             android:stateNotNeeded="true"
             android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="org.tensorflow.blindhelp.examples.classification.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
     </application>
 
 </manifest>

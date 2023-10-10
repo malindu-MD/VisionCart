@@ -50,4 +50,18 @@
         app:layout_constraintTop_toBottomOf="@+id/textView12"
         tools:listitem="@layout/viewoffersadmincard" />
 
+    <TextView
+        android:id="@+id/downloadpdf"
+        android:layout_width="177dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="222dp"
+        android:text="Download List As PDf"
+        android:textColor="#2F63FF"
+        app:layout_constraintBottom_toTopOf="@+id/offerhome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adminViewOffer" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

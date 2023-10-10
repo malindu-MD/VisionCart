@@ -1,3 +1,4 @@
+// AdminOfferAdapter.java
 package org.tensorflow.blindhelp.examples.classification.adapters;
 
 import android.view.LayoutInflater;
@@ -5,14 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import org.tensorflow.blindhelp.examples.classification.models.Offers;
-
 import org.tensorflow.lite.examples.classification.R;
-
 import java.util.ArrayList;
 
 public class AdminOfferAdapter extends RecyclerView.Adapter<AdminOfferAdapter.MyViewHolder> {
@@ -24,6 +21,8 @@ public class AdminOfferAdapter extends RecyclerView.Adapter<AdminOfferAdapter.My
         void onItemClick(int position);
 
         void onUpdateButtonClick(int position);
+
+        void onDeleteButtonClick(int position); // Added delete method
     }
 
     public void setOnItemClickListener(OnItemClickListener clickListener) {
@@ -46,8 +45,8 @@ public class AdminOfferAdapter extends RecyclerView.Adapter<AdminOfferAdapter.My
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Offers offers = list.get(position);
         holder.pname.setText(offers.getPname());
-        holder.startDate.setText(offers.getFromMonth() + offers.getFromday());
-        holder.endDate.setText(offers.getToMonth() + offers.getToDay());
+        holder.startDate.setText(offers.getDateStart());
+        holder.endDate.setText(offers.getDateEnd());
         holder.offerDet.setText(offers.getOfferDetails());
 
         // Set a click listener for the update ImageButton
@@ -62,6 +61,19 @@ public class AdminOfferAdapter extends RecyclerView.Adapter<AdminOfferAdapter.My
                 }
             }
         });
+
+        // Set a click listener for the delete ImageButton
+        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mListener != null) {
+                    int position = holder.getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        mListener.onDeleteButtonClick(position);
+                    }
+                }
+            }
+        });
     }
 
     @Override
@@ -71,7 +83,7 @@ public class AdminOfferAdapter extends RecyclerView.Adapter<AdminOfferAdapter.My
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         TextView pname, offerDet, startDate, endDate;
-        ImageButton updateButton;
+        ImageButton updateButton, deleteButton;
 
         public MyViewHolder(@NonNull View itemView, final OnItemClickListener clickListener) {
             super(itemView);
@@ -81,6 +93,7 @@ public class AdminOfferAdapter extends RecyclerView.Adapter<AdminOfferAdapter.My
             startDate = itemView.findViewById(R.id.adminFromdate);
             endDate = itemView.findViewById(R.id.adminToDate);
             updateButton = itemView.findViewById(R.id.updateButton);
+            deleteButton = itemView.findViewById(R.id.deleteButton);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
