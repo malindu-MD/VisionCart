@@ -4,9 +4,13 @@
     <uses-sdk />
 
     <uses-permission android:name="android.permission.CAMERA" />
+<<<<<<< HEAD
+    <uses-permission android:name="android.permission.INTERNET" />
+=======
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
+>>>>>>> main
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -16,13 +20,21 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher_background"
-        android:label="@string/activity_name_classification"
+        android:label="Vision Cart"
         android:roundIcon="@drawable/ic_launcher_background"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/file_paths" />
+
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.activities.addProducts"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.activities.admin_product_view"
+            android:exported="false"
+            android:theme="@style/AppThemeWithActionBar"/>
 
         <activity
             android:name="org.tensorflow.blindhelp.examples.classification.test"
