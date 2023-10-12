@@ -13,6 +13,8 @@ import androidx.cardview.widget.CardView;
 
 import org.tensorflow.blindhelp.examples.classification.CameraTest;
 import org.tensorflow.blindhelp.examples.classification.ClassifierActivity;
+
+import org.tensorflow.blindhelp.examples.classification.ShoppingList;
 import org.tensorflow.blindhelp.examples.classification.offersPage;
 import org.tensorflow.lite.examples.classification.R;
 
@@ -78,11 +80,11 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener,
         } else if (view.getId() == R.id.cash) {
             text = "You clicked Currency Detector";
         } else if (view.getId() == R.id.toDo) {
-            text = "You clicked Shopping List!";
+            text = "You clicked Wish List!";
         }else if (view.getId() == R.id.offers) {
             text = "You clicked Discount Item List";
         }else if (view.getId() == R.id.cart) {
-            text = "You clicked My Cart";
+            text = "You clicked My Shopping Cart";
         }
         else {
             throw new IllegalArgumentException("Undefined Clicked");
@@ -105,7 +107,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener,
             return true;
         }
         else if (view.getId() == R.id.qrCode) {
-            intent = new Intent(this, Camera.class);
+            intent = new Intent(this, admin_product_view.class);
             startActivity(intent);
             return true;
         }
@@ -120,7 +122,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener,
             return true;
         }
         else if (view.getId() == R.id.cart) {
-            intent = new Intent(this, ClassifierActivity.class);
+            intent = new Intent(this, ShoppingList.class);
             startActivity(intent);
             return true;
         }

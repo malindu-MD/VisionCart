@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 28
@@ -44,10 +45,19 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
 
-
-
+    // this is pdf dependencey
     implementation 'com.itextpdf:itextpdf:5.5.13.2'
 
+
+
+
+
+    implementation 'com.firebaseui:firebase-ui-database:7.1.1'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.orhanobut:dialogplus:1.11@aar'
 
 
 
@@ -61,3 +71,5 @@ dependencies {
     // Use local TensorFlow library
     // implementation 'org.tensorflow:tensorflow-lite-local:0.0.0'
 }
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.android.application'

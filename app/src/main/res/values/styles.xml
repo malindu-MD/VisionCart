@@ -2,6 +2,7 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -16,5 +17,9 @@
     <style name="CustomToolBar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:windowActionBarOverlay">true</item>
         <item name="windowActionBarOverlay">true</item>
+    </style>
+    <style name="AppThemeWithActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#0C2752</item>
+        <!-- Other theme attributes -->
     </style>
 </resources>

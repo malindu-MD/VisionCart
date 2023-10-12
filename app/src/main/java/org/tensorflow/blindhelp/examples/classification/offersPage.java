@@ -89,14 +89,13 @@ public class offersPage extends AppCompatActivity implements View.OnClickListene
 
                         String pname=list.get(position).getPname();
                         String offerDetails=list.get(position).getOfferDetails();
-                        String fromMonth=list.get(position).getFromMonth();
-                        String fromDay=list.get(position).getFromday();
-                        String toMonth=list.get(position).getToMonth();
-                        String toDay=list.get(position).getToDay();
+                        String dateStart=list.get(position).getDateStart();
+                        String dateEnd=list.get(position).getDateEnd();
 
 
 
-                        speak(offerDetails+"for"+pname+"from"+fromMonth+fromDay+"To"+toMonth+toDay+"\n");
+
+                        speak(offerDetails+"for"+pname+"from"+dateStart+"To"+dateEnd+"\n");
 
 
 

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.tensorflow.blindhelp.examples.classification.activities.addProducts">
+
+    <EditText
+        android:id="@+id/addProductTxt"
+        android:layout_width="230dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="12dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Enter Product Name"
+        app:layout_constraintBottom_toTopOf="@+id/textView16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.342"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="223dp"
+        android:layout_height="30dp"
+        android:text="Product Name"
+        app:layout_constraintBottom_toTopOf="@+id/addProductTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.781" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="200dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="8dp"
+        android:text="Manufactured Date"
+        app:layout_constraintBottom_toTopOf="@+id/addManuDateTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.293"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/addManuDateTxt"
+        android:layout_width="220dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="12dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="date"
+        app:layout_constraintBottom_toTopOf="@+id/textView18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.324"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="202dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="8dp"
+        android:text="Expire Date"
+        app:layout_constraintBottom_toTopOf="@+id/addExpTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.287"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/addExpTxt"
+        android:layout_width="225dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="12dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="date"
+        app:layout_constraintBottom_toTopOf="@+id/textView19"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="203dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:text="Price"
+        app:layout_constraintBottom_toTopOf="@+id/addPriceTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.298"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/addPriceTxt"
+        android:layout_width="235dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="price"
+        app:layout_constraintBottom_toTopOf="@+id/textView20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.352"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/addDetailsTxt"
+        android:layout_width="226dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="216dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Details"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="208dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="8dp"
+        android:text="details"
+        app:layout_constraintBottom_toTopOf="@+id/addDetailsTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.305"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/addStoreBtn"
+        android:layout_width="225dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="20dp"
+        android:text="Store Data"
+        app:layout_constraintBottom_toTopOf="@+id/addBackBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/addBackBtn"
+        android:layout_width="186dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="43dp"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
