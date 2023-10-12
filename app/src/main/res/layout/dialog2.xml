@@ -1,0 +1,70 @@
+<!-- res/layout/dialog_accept_request.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Are you sure you want to logOut?"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:padding="16dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:padding="2dp"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/no"
+                android:background="#c70e0e"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No" />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:padding="2dp"
+
+
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/yes"
+                android:background="#0C2752"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_height="wrap_content"
+                android:text="Yes" />
+
+
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

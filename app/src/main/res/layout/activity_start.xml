@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:backgroundTint="@color/light"
+    tools:context="org.tensorflow.blindhelp.examples.classification.start">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:layout_marginTop="56dp"
+        android:paddingTop="5dp"
+        android:text="V I S I O N  C A R T"
+        android:textAlignment="center"
+        android:textColor="#0C2752"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="match_parent"
+        android:layout_height="245dp"
+        app:layout_constraintBottom_toTopOf="@+id/volunteer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.591"
+        app:srcCompat="@drawable/whatsapp_image_2023_09_07_at_19_45_18" />
+
+    <Button
+        android:id="@+id/blind"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/custom_button"
+        android:text="As a Blind"
+        android:textColor="@color/white"
+        android:textSize="@dimen/button_text_size"
+        app:layout_constraintBottom_toTopOf="@+id/admin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/volunteer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/custom_button"
+        android:text="As a Volunteer"
+        android:textColor="@color/white"
+        android:textSize="@dimen/button_text_size"
+        app:layout_constraintBottom_toTopOf="@+id/blind"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/admin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="admin side"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,19 +7,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.tensorflow.blindhelp.examples.classification.models.VolunteerRequest;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import org.tensorflow.lite.examples.classification.R;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class RequestList extends RecyclerView.Adapter<RequestList.ViewHolder> {
 
@@ -53,49 +49,7 @@ public class RequestList extends RecyclerView.Adapter<RequestList.ViewHolder> {
         holder.time.setText(request.getTime());
         holder.phoneNumber.setText(request.getPhoneNumber());
 
-        holder.update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-
-
-
-
-                String sts="accept";
-                String vol="pavan";
-                String id=request.getID();
-
-
-                HashMap User = new HashMap();
-                User.put("status",sts);
-                User.put("volunteer",vol);
-
-                databaseReference = FirebaseDatabase.getInstance().getReference("VolunteerRequest");
-                databaseReference.child(id).updateChildren(User).addOnCompleteListener(new OnCompleteListener() {
-                    @Override
-                    public void onComplete(@NonNull Task task) {
-
-                        if (task.isSuccessful()){
-
-                            notifyItemRangeChanged(position, rList.size());
-
-
-                        }else {
-
-
-                        }
-
-                    }
-                });
-
-
-
-
-
-
-
-            }
-        });
 
     }
 
@@ -103,6 +57,13 @@ public class RequestList extends RecyclerView.Adapter<RequestList.ViewHolder> {
     public int getItemCount() {
         return rList.size();
     }
+    public void updateDataSet(ArrayList<VolunteerRequest> newDataSet) {
+        rList.clear();
+        rList.addAll(newDataSet);
+        notifyDataSetChanged();
+    }
+
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -114,13 +75,13 @@ public class RequestList extends RecyclerView.Adapter<RequestList.ViewHolder> {
         Button update;
         public ViewHolder(View itemView, final OnItemClickListener clickListener) {
             super(itemView);
-            name = itemView.findViewById(R.id.name);
-            date = itemView.findViewById(R.id.date2);
-            time = itemView.findViewById(R.id.time2);
-            phoneNumber = itemView.findViewById(R.id.phoneNumber);
+            name = itemView.findViewById(R.id.name1);
+            date = itemView.findViewById(R.id.date3);
+            time = itemView.findViewById(R.id.time3);
+            phoneNumber = itemView.findViewById(R.id.phoneNumber1);
             update =itemView.findViewById(R.id.accept);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            update.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (clickListener != null) {

@@ -18,13 +18,26 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ViewHold
     private ArrayList<VolunteerRequest> rList;
     private OnItemClickListener mListener;
 
+    private OnItemLongClickListener mLongClickListener;
+
+
     public interface OnItemClickListener {
         void onItemClick(int position);
     }
 
+    public interface OnItemLongClickListener {
+        void onItemLongClick(int position);
+    }
+
+
     public void setOnItemClickListener(OnItemClickListener clickListener) {
         mListener = clickListener;
     }
+
+    public void setOnItemLongClickListener(OnItemLongClickListener longClickListener) {
+        mLongClickListener = longClickListener;
+    }
+
 
     public RequestAdapter(ArrayList<VolunteerRequest> rList) {
         this.rList = rList;
@@ -33,15 +46,14 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_event_to_instructor, parent, false);
-        return new ViewHolder(itemView, mListener);
+        return new ViewHolder(itemView, mListener,mLongClickListener);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         VolunteerRequest request = rList.get(position);
         holder.status.setText(request.getStatus());
-        holder.date.setText(request.getDate());
-        holder.time.setText(request.getTime());
+        holder.requestNumber.setText("Request Number "+request.getRequestId());
     }
 
     @Override
@@ -49,16 +61,23 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ViewHold
         return rList.size();
     }
 
+
+    public void updateDataSet(ArrayList<VolunteerRequest> newDataSet) {
+        rList.clear();
+        rList.addAll(newDataSet);
+        notifyDataSetChanged();
+    }
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView status;
-        TextView date;
-        TextView time;
+        TextView requestNumber;
 
-        public ViewHolder(View itemView, final OnItemClickListener clickListener) {
+
+        public ViewHolder(View itemView, final OnItemClickListener clickListener,final OnItemLongClickListener longClickListener) {
             super(itemView);
-            status = itemView.findViewById(R.id.status1);
-            date = itemView.findViewById(R.id.date1);
-            time = itemView.findViewById(R.id.time1);
+            requestNumber = itemView.findViewById(R.id.requestNumber);
+            status=itemView.findViewById(R.id.status1);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -69,6 +88,19 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ViewHold
                             clickListener.onItemClick(position);
                         }
                     }
+                }
+            });
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    if (longClickListener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            longClickListener.onItemLongClick(position);
+                            return true; // Consume the long click event
+                        }
+                    }
+                    return false;
                 }
             });
         }

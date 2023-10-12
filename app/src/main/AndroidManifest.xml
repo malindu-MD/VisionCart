@@ -8,6 +8,10 @@
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera.flash"/>
+
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher_background"
@@ -15,6 +19,24 @@
         android:roundIcon="@drawable/ic_launcher_background"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.blindRegister"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.blindLogin"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.completedRequest"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.acceptedRequest"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.activities.helpDesk"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.activities.HomePage"
+            android:exported="false" />
         <activity
             android:name="org.tensorflow.blindhelp.examples.classification.test"
             android:exported="false" />
@@ -25,7 +47,7 @@
             android:name="org.tensorflow.blindhelp.examples.classification.ClassifierActivity"
             android:exported="false" />
         <activity
-            android:name="org.tensorflow.blindhelp.examples.classification.activities.HomePage"
+            android:name="org.tensorflow.blindhelp.examples.classification.start"
             android:label="Vision Cart"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -41,7 +63,7 @@
             android:name="org.tensorflow.blindhelp.examples.classification.requestcard"
             android:exported="false" />
         <activity
-            android:name="org.tensorflow.blindhelp.examples.classification.VDashboard"
+            android:name="org.tensorflow.blindhelp.examples.classification.viewRequest"
             android:exported="false" />
         <activity
             android:name="org.tensorflow.blindhelp.examples.classification.addOffers"
@@ -56,13 +78,13 @@
             android:name="org.tensorflow.blindhelp.examples.classification.offers"
             android:exported="false" />
         <activity
-            android:name="org.tensorflow.blindhelp.examples.classification.viewRequest"
-            android:exported="false" />
-        <activity
             android:name="org.tensorflow.blindhelp.examples.classification.sendRequest"
             android:exported="false" />
         <activity
-            android:name="org.tensorflow.blindhelp.examples.classification.activities.helpDesk"
+            android:name="org.tensorflow.blindhelp.examples.classification.VDashboard"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.CameraTest"
             android:exported="false" />
         <activity
             android:name="org.tensorflow.blindhelp.examples.classification.MainActivity"
@@ -105,6 +127,16 @@
             android:screenOrientation="fullSensor"
             android:stateNotNeeded="true"
             android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="org.tensorflow.blindhelp.examples.classification.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

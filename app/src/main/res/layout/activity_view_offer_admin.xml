@@ -7,7 +7,7 @@
     tools:context="org.tensorflow.blindhelp.examples.classification.viewOfferAdmin">
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/textds"
         android:layout_width="184dp"
         android:layout_height="65dp"
         android:layout_marginStart="114dp"
@@ -47,7 +47,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textds"
         tools:listitem="@layout/viewoffersadmincard" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

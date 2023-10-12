@@ -1,9 +1,12 @@
 package org.tensorflow.blindhelp.examples.classification;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,11 +24,15 @@ import org.tensorflow.lite.examples.classification.R;
 public class volunteerregister extends AppCompatActivity {
 
 
-   private EditText usernameEditText, emailEditText, passwordEditText;
+    private EditText usernameEditText, emailEditText, passwordEditText;
 
-  private Button registerButton;
+    private Button registerButton;
 
     private DatabaseReference usersRef;
+
+    private ProgressBar pb;
+
+    private TextView login;
 
 
     @Override
@@ -37,18 +44,35 @@ public class volunteerregister extends AppCompatActivity {
       emailEditText = findViewById(R.id.email);
       passwordEditText = findViewById(R.id.password);
       registerButton = findViewById(R.id.register);
+      pb=findViewById(R.id.progressBar2);
+      login=findViewById(R.id.login);
 
-        usersRef = FirebaseDatabase.getInstance().getReference("volunteer");
+      pb.setVisibility(View.INVISIBLE);
 
-        registerButton.setOnClickListener(new View.OnClickListener() {
+      usersRef = FirebaseDatabase.getInstance().getReference("volunteer");
+
+      registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                pb.setVisibility(View.VISIBLE);
                 String username = usernameEditText.getText().toString();
                 String email = emailEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
 
                 // Check if the username is unique
                 checkUsernameAvailability(username, email, password);
+            }
+      });
+
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent=new Intent(volunteerregister.this,volunteerLogin.class);
+                startActivity(intent);
             }
         });
 
@@ -83,6 +107,9 @@ public class volunteerregister extends AppCompatActivity {
         usersRef.child(userId).setValue(volunteer);
 
         Toast.makeText(this, "Registration successful.", Toast.LENGTH_SHORT).show();
+
+        Intent intent=new Intent(volunteerregister.this,volunteerLogin.class);
+        startActivity(intent);
     }
 
 
