@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,7 +18,7 @@ import org.tensorflow.lite.examples.classification.R;
 
 import java.util.ArrayList;
 
-public class RequestList extends RecyclerView.Adapter<RequestList.ViewHolder> {
+public class Completed extends RecyclerView.Adapter<Completed.ViewHolder> {
 
     private ArrayList<VolunteerRequest> rList;
     private OnItemClickListener mListener;
@@ -31,13 +32,13 @@ public class RequestList extends RecyclerView.Adapter<RequestList.ViewHolder> {
         mListener = clickListener;
     }
 
-    public RequestList(ArrayList<VolunteerRequest> rList) {
+    public Completed(ArrayList<VolunteerRequest> rList) {
         this.rList = rList;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_requestcard, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.deleterequest, parent, false);
         return new ViewHolder(itemView, mListener);
     }
 
@@ -72,16 +73,16 @@ public class RequestList extends RecyclerView.Adapter<RequestList.ViewHolder> {
         TextView time;
 
         TextView phoneNumber;
-        Button update;
+        ImageView delete;
         public ViewHolder(View itemView, final OnItemClickListener clickListener) {
             super(itemView);
             name = itemView.findViewById(R.id.name1);
             date = itemView.findViewById(R.id.date3);
             time = itemView.findViewById(R.id.time3);
             phoneNumber = itemView.findViewById(R.id.phoneNumber1);
-            update =itemView.findViewById(R.id.accept);
+            delete =itemView.findViewById(R.id.deleted);
 
-            update.setOnClickListener(new View.OnClickListener() {
+            delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (clickListener != null) {
@@ -94,6 +95,8 @@ public class RequestList extends RecyclerView.Adapter<RequestList.ViewHolder> {
             });
         }
     }
+
+
 }
 
 

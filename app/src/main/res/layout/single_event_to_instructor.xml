@@ -15,40 +15,34 @@
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/status1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/requestNumber"
+            android:layout_width="325dp"
+            android:layout_height="28dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="10dp"
-            android:text="Status"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="22dp"
+
+            android:layout_marginEnd="27dp"
+            android:text="Request Number 253690"
+            android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="25dp"
             android:textStyle="bold" />
 
-
         <TextView
-            android:id="@+id/time1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="Time"
-            android:textColor="@color/black"
-            android:textSize="20dp" />
-
-        <TextView
-            android:id="@+id/date1"
+            android:id="@+id/status1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="10dp"
-            android:text="Date"
+            android:layout_marginEnd="147dp"
+            android:layout_marginBottom="6dp"
+            android:text="TextView"
+            android:textSize="18sp"
             android:textColor="@color/black"
-            android:textSize="20dp" />
+            android:textStyle="bold" />
 
 
     </RelativeLayout>

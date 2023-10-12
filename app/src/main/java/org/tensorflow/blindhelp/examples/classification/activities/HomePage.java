@@ -11,6 +11,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import org.tensorflow.blindhelp.examples.classification.CameraTest;
 import org.tensorflow.blindhelp.examples.classification.ClassifierActivity;
 
 import org.tensorflow.blindhelp.examples.classification.ShoppingList;
@@ -116,7 +117,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener,
             return true;
         }
         else if (view.getId() == R.id.cash) {
-            intent = new Intent(this, ClassifierActivity.class);
+            intent = new Intent(this, CameraTest.class);
             startActivity(intent);
             return true;
         }

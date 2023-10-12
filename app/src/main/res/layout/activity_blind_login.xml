@@ -7,7 +7,7 @@
     android:layout_marginLeft="10dp"
     android:layout_marginTop="10dp"
     android:layout_marginRight="10dp"
-    tools:context="org.tensorflow.blindhelp.examples.classification.volunteerLogin">
+    tools:context="org.tensorflow.blindhelp.examples.classification.blindLogin">
 
     <ProgressBar
         android:id="@+id/progressBar7"
@@ -47,9 +47,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Volunteer Login"
+        android:text="Visually Impaired Login"
         android:textColor="#0C2752"
-        android:textSize="34sp"
+        android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,9 +126,11 @@
         android:id="@+id/imageView11"
         android:layout_width="315dp"
         android:layout_height="225dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/volunteericons" />
+        app:srcCompat="@drawable/visuallyimpaired" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

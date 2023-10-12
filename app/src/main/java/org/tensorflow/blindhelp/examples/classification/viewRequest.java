@@ -23,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
 
 public class viewRequest extends AppCompatActivity  implements View.OnClickListener, TextToSpeech.OnInitListener{
@@ -33,11 +34,16 @@ public class viewRequest extends AppCompatActivity  implements View.OnClickListe
 
     private ArrayList<VolunteerRequest> volunteerRequests;
     private DatabaseReference database;
+    private SessionManager sessionManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_request);
+
+        sessionManager = new SessionManager(this);
+
 
 
 
@@ -62,7 +68,11 @@ public class viewRequest extends AppCompatActivity  implements View.OnClickListe
                     for (DataSnapshot productSnapshot : snapshot.getChildren()) {
                         VolunteerRequest product = productSnapshot.getValue(VolunteerRequest.class);
                         if (product != null) {
-                            volunteerRequests.add(product);
+
+                            if(product.getEmail().equals(sessionManager.getUserId())){
+                                volunteerRequests.add(product);
+
+                            }
                         }
                     }
                     RequestAdapter mAdapter = new RequestAdapter(volunteerRequests);
@@ -71,18 +81,31 @@ public class viewRequest extends AppCompatActivity  implements View.OnClickListe
                     mAdapter.setOnItemClickListener(new RequestAdapter.OnItemClickListener() {
                         @Override
                         public void onItemClick(int position) {
-
+                         String requestId=volunteerRequests.get(position).getRequestId();
                          String status=volunteerRequests.get(position).getStatus();
                          String volunteer=volunteerRequests.get(position).getVolunteer();
+                         String volunteerName=volunteerRequests.get(position).getVolunteerName();
+
+                             if(status.equals("Not accept")){
+
+                                 speak("Request Number is "+requestId+"Your request is "+status+"\n");
+
+
+                             }
+                             else if(status.equals("Completed")){
+
+                                 speak("Request Number is "+requestId+"\nYour request is "+status+"\n");
+
+                             }
+                             else if(status.equals("Accepted")){
+
+                                 speak("Request Number is "+requestId+"Your request is "+status+"\n"+"Your Volunteer is "+volunteerName+"\nThat Person will meet you at shop given date and time"+"\n\nIf the Volunteer helped you,long tap to complete the request");
+
+
+                             }
 
 
 
-                             speak("Your request is "+status+"\n");
-
-
-
-
-                             speak("Your request is "+status+"\nYour volunteer is"+volunteer);
 
 
 
@@ -90,6 +113,59 @@ public class viewRequest extends AppCompatActivity  implements View.OnClickListe
 
 
 
+
+
+
+
+
+                        }
+                    });
+
+                    mAdapter.setOnItemLongClickListener(new RequestAdapter.OnItemLongClickListener() {
+                        @Override
+                        public void onItemLongClick(int position) {
+
+
+
+                            String requestId=volunteerRequests.get(position).getRequestId();
+                            String status=volunteerRequests.get(position).getStatus();
+                            String volunteer=volunteerRequests.get(position).getVolunteer();
+                            String volunteerName=volunteerRequests.get(position).getVolunteerName();
+
+                            if(status.equals("Not accept")){
+
+                                speak("Request Number is "+requestId+"Your request is "+status+"\n");
+
+
+                            }
+                            else if(status.equals("Completed")){
+
+                                speak("Request Number is "+requestId+"\nYour request is "+status+"\n");
+
+                            }
+                            else if(status.equals("Accepted")){
+
+                                VolunteerRequest request = volunteerRequests.get(position);
+
+                                if (request != null) {
+                                    String id = request.getID(); // Replace with your unique identifier
+                                    database.child(id).updateChildren(new HashMap<String, Object>() {{
+                                        put("point",10);
+                                        put("status", "Completed");
+                                    }});
+
+
+                                    volunteerRequests.remove(position);
+
+
+                                    mAdapter.updateDataSet(volunteerRequests);
+
+
+
+
+                                }
+
+                            }
 
 
                         }

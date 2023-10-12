@@ -96,19 +96,15 @@
             android:textColor="@color/black"
             android:textSize="15dp" />
 
-        <Button
-            android:id="@+id/accept"
-            android:layout_width="wrap_content"
-            android:layout_height="38dp"
+        <ImageView
+            android:id="@+id/deleted"
+            android:layout_width="45dp"
+            android:layout_height="43dp"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="2dp"
-
-            android:layout_marginBottom="2dp"
-            android:backgroundTint="#4CAF50"
-            android:shadowRadius="0"
-            android:text="View>>> "
-            android:textSize="11sp" />
+            android:layout_marginTop="47dp"
+            android:layout_marginEnd="13dp"
+            app:srcCompat="@android:drawable/ic_menu_delete" />
 
 
     </RelativeLayout>

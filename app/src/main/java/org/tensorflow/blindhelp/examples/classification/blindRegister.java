@@ -18,11 +18,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.tensorflow.blindhelp.examples.classification.models.Blind;
 import org.tensorflow.blindhelp.examples.classification.models.Volunteer;
 import org.tensorflow.lite.examples.classification.R;
 
-public class volunteerregister extends AppCompatActivity {
-
+public class blindRegister extends AppCompatActivity {
 
     private EditText usernameEditText, emailEditText, passwordEditText;
 
@@ -38,25 +38,27 @@ public class volunteerregister extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_volunteerregister);
+        setContentView(R.layout.activity_blind_register);
 
-      usernameEditText = findViewById(R.id.userName);
-      emailEditText = findViewById(R.id.email);
-      passwordEditText = findViewById(R.id.password);
-      registerButton = findViewById(R.id.register);
-      pb=findViewById(R.id.progressBar2);
-      login=findViewById(R.id.login);
 
-      pb.setVisibility(View.INVISIBLE);
+        usernameEditText = findViewById(R.id.userName);
+        emailEditText = findViewById(R.id.email);
+        passwordEditText = findViewById(R.id.password);
+        registerButton = findViewById(R.id.register);
+        pb=findViewById(R.id.progressBar2);
+        login=findViewById(R.id.login);
 
-      usersRef = FirebaseDatabase.getInstance().getReference("volunteer");
+        pb.setVisibility(View.INVISIBLE);
 
-      registerButton.setOnClickListener(new View.OnClickListener() {
+        usersRef = FirebaseDatabase.getInstance().getReference("blind");
+
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
 
-                pb.setVisibility(View.VISIBLE);
+
                 String username = usernameEditText.getText().toString();
                 String email = emailEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
@@ -64,28 +66,28 @@ public class volunteerregister extends AppCompatActivity {
                 // Check if the username is unique
                 checkUsernameAvailability(username, email, password);
             }
-      });
-
+        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent=new Intent(volunteerregister.this,volunteerLogin.class);
+                Intent intent=new Intent(blindRegister.this,blindLogin.class);
                 startActivity(intent);
             }
         });
-
-
-
     }
 
+
     private void checkUsernameAvailability(final String username, final String email, final String password) {
+
+        pb.setVisibility(View.VISIBLE);
+
         usersRef.orderByChild("email").equalTo(email).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    Toast.makeText(volunteerregister.this, "Email is already Registered.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(blindRegister.this, "Email is already Registered.", Toast.LENGTH_SHORT).show();
                 } else {
                     // Username is available, proceed with registration
                     registerUser(username, email, password);
@@ -94,23 +96,24 @@ public class volunteerregister extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(volunteerregister.this, "Database read error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(blindRegister.this, "Database read error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
 
 
         });
     }
 
+
     private void registerUser(String username, String email, String password) {
         String userId = usersRef.push().getKey();
-        Volunteer volunteer = new Volunteer(username, email, password);
-        usersRef.child(userId).setValue(volunteer);
+        Blind blind = new Blind(username, email, password);
+        usersRef.child(userId).setValue(blind);
 
         Toast.makeText(this, "Registration successful.", Toast.LENGTH_SHORT).show();
 
-        Intent intent=new Intent(volunteerregister.this,volunteerLogin.class);
+        pb.setVisibility(View.INVISIBLE);
+
+        Intent intent=new Intent(blindRegister.this,blindLogin.class);
         startActivity(intent);
     }
-
-
 }
