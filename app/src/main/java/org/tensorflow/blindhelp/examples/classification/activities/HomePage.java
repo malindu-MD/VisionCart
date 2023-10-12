@@ -32,6 +32,8 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener,
     private CardView  offers;
     private CardView  cart;
 
+    private CardView cur;
+
 
 
 
@@ -52,6 +54,8 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener,
         toDo=findViewById(R.id.toDo);
         offers=findViewById(R.id.offers);
         cart=findViewById(R.id.cart);
+        cur=findViewById(R.id.cur);
+
 
         qrCode.setOnClickListener(this);
         help.setOnClickListener(this);
@@ -59,6 +63,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener,
         toDo.setOnClickListener(this);
         offers.setOnClickListener(this);
         cart.setOnClickListener(this);
+        cur.setOnClickListener(this);
 
         qrCode.setOnLongClickListener(this);
         help.setOnLongClickListener(this);
@@ -66,6 +71,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener,
         toDo.setOnLongClickListener(this);
         offers.setOnLongClickListener(this);
         cart.setOnLongClickListener(this);
+        cur.setOnLongClickListener(this);
 
 
     }
@@ -123,6 +129,11 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener,
         }
         else if (view.getId() == R.id.cart) {
             intent = new Intent(this, ShoppingList.class);
+            startActivity(intent);
+            return true;
+        }
+        else if (view.getId() == R.id.cur) {
+            intent = new Intent(this, ClassifierActivity.class);
             startActivity(intent);
             return true;
         }
