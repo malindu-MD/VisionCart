@@ -260,6 +260,7 @@
             </LinearLayout>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
+                android:id="@+id/cur"
                 android:layout_height="match_parent"
                 android:layout_marginRight="5dp"
                 android:backgroundTint="#0C2752"
