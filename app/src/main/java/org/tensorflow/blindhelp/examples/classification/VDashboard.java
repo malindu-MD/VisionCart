@@ -402,9 +402,9 @@ public class VDashboard extends AppCompatActivity  {
             PdfPTable validity = new PdfPTable(1);
             validity.setWidthPercentage(100);
             validity.addCell(getValidityCell(" "));
-            validity.addCell(getValidityCell("Warranty"));
-            validity.addCell(getValidityCell(" * Products purchased comes with 1 year national warranty \n   (if applicable)"));
-            validity.addCell(getValidityCell(" * Warranty should be claimed only from the respective manufactures"));
+            validity.addCell(getValidityCell("Conditions"));
+            validity.addCell(getValidityCell(" This points are valid for 6 months"));
+            validity.addCell(getValidityCell(" You can get discount using your email"));
             PdfPCell summaryL = new PdfPCell (validity);
             summaryL.setColspan (3);
             summaryL.setPadding (1.0f);
@@ -428,8 +428,7 @@ public class VDashboard extends AppCompatActivity  {
             PdfPTable describer = new PdfPTable(1);
             describer.setWidthPercentage(100);
             describer.addCell(getdescCell(" "));
-            describer.addCell(getdescCell("Goods once sold will not be taken back or exchanged || Subject to product justification || Product damage no one responsible || "
-                    + " Service only at concarned authorized service centers"));
+            describer.addCell(getdescCell(" "));
 
             document.open();//PDF document opened........
 
