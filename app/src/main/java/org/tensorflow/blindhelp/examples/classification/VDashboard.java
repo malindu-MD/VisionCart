@@ -244,7 +244,7 @@ public class VDashboard extends AppCompatActivity  {
             PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(filePath));
 
 
-            //Inserting Image in PDF
+            //Inserting Image in PDFc
             Date currentDate = new Date();
 
             // Define the desired date format
