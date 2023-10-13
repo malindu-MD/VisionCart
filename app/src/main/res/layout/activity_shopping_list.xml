@@ -35,4 +35,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/readItemBtn"
+        android:layout_width="195dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="99dp"
+        android:layout_marginEnd="117dp"
+        android:layout_marginBottom="29dp"
+        android:text="Read Item"
+        app:layout_constraintBottom_toTopOf="@+id/cardHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

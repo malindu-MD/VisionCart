@@ -24,7 +24,11 @@
                 android:id="@+id/adminOfferdet"
                 android:layout_width="240dp"
                 android:layout_height="41dp"
+
                 android:layout_marginStart="12dp"
+
+               
+
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="6dp"
                 android:text="Customer Handling Lecture"
@@ -32,7 +36,8 @@
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/adminPrName"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/adminFromdate"
@@ -55,8 +60,10 @@
                 android:layout_width="129dp"
                 android:layout_height="36dp"
                 android:layout_marginStart="16dp"
+
                 android:layout_marginTop="37dp"
                 android:layout_marginBottom="15dp"
+
                 android:text="Date "
                 android:textColor="@color/black"
                 android:textSize="20sp"

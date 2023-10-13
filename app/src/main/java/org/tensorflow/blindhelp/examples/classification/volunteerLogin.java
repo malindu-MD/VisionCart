@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -26,7 +28,11 @@ public class volunteerLogin extends AppCompatActivity {
     private Button loginButton;
     private DatabaseReference usersRef;
 
+    private ProgressBar pb;
+
     private SessionManager sessionManager;
+
+    private TextView register;
 
 
     @Override
@@ -34,16 +40,41 @@ public class volunteerLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_volunteer_login2);
 
+
+
         emailEditText = findViewById(R.id.email);
         passwordEditText = findViewById(R.id.password);
         loginButton = findViewById(R.id.vlogin);
+        register=findViewById(R.id.register);
+        pb=findViewById(R.id.progressBar7);
+        pb.setVisibility(View.INVISIBLE);
+
 
         usersRef = FirebaseDatabase.getInstance().getReference("volunteer");
         sessionManager = new SessionManager(this);
 
+        if(sessionManager.isLoggedIn()){
+
+            Intent intent=new Intent(volunteerLogin.this, VDashboard.class);
+            startActivity(intent);
+
+        }
+
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent=new Intent(volunteerLogin.this,volunteerregister.class);
+                startActivity(intent);
+
+            }
+        });
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                pb.setVisibility(View.VISIBLE);
+
                 String email = emailEditText.getText().toString();
                 String password = passwordEditText.getText().toString();
 
@@ -66,7 +97,7 @@ public class volunteerLogin extends AppCompatActivity {
                             Toast.makeText(volunteerLogin.this, "Login successful.", Toast.LENGTH_SHORT).show();
                             sessionManager.createSession(volunteer.getEmail(), volunteer.getUsername());
 
-                            Intent intent=new Intent(volunteerLogin.this,test.class);
+                            Intent intent=new Intent(volunteerLogin.this, VDashboard.class);
                             startActivity(intent);
 
 

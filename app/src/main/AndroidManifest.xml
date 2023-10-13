@@ -4,19 +4,27 @@
     <uses-sdk />
 
     <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
 
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
 
+    <uses-feature android:name="android.hardware.camera.flash"/>
+
+
+
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher_background"
-        android:label="@string/activity_name_classification"
+        android:label="Vision Cart"
         android:roundIcon="@drawable/ic_launcher_background"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -24,6 +32,32 @@
             android:name="com.google.android.actions"
             android:resource="@xml/file_paths" />
 
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.activities.addProducts"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.activities.admin_product_view"
+            android:exported="false"
+            android:theme="@style/AppThemeWithActionBar"/>
+
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.blindRegister"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.blindLogin"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.completedRequest"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.acceptedRequest"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.activities.helpDesk"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.activities.HomePage"
+            android:exported="false" />
         <activity
             android:name="org.tensorflow.blindhelp.examples.classification.test"
             android:exported="false" />
@@ -34,7 +68,8 @@
             android:name="org.tensorflow.blindhelp.examples.classification.ClassifierActivity"
             android:exported="false" />
         <activity
-            android:name="org.tensorflow.blindhelp.examples.classification.activities.HomePage"
+
+            android:name="org.tensorflow.blindhelp.examples.classification.addofferpage"
             android:exported="false"
             android:label="Vision Cart"
             android:screenOrientation="portrait"></activity>
@@ -45,7 +80,7 @@
             android:name="org.tensorflow.blindhelp.examples.classification.requestcard"
             android:exported="false" />
         <activity
-            android:name="org.tensorflow.blindhelp.examples.classification.VDashboard"
+            android:name="org.tensorflow.blindhelp.examples.classification.viewRequest"
             android:exported="false" />
         <activity
             android:name="org.tensorflow.blindhelp.examples.classification.addOffers"
@@ -60,13 +95,13 @@
             android:name="org.tensorflow.blindhelp.examples.classification.offers"
             android:exported="false" />
         <activity
-            android:name="org.tensorflow.blindhelp.examples.classification.viewRequest"
-            android:exported="false" />
-        <activity
             android:name="org.tensorflow.blindhelp.examples.classification.sendRequest"
             android:exported="false" />
         <activity
-            android:name="org.tensorflow.blindhelp.examples.classification.activities.helpDesk"
+            android:name="org.tensorflow.blindhelp.examples.classification.VDashboard"
+            android:exported="false" />
+        <activity
+            android:name="org.tensorflow.blindhelp.examples.classification.CameraTest"
             android:exported="false" />
         <activity
             android:name="org.tensorflow.blindhelp.examples.classification.MainActivity"
@@ -78,7 +113,7 @@
             android:name="org.tensorflow.blindhelp.examples.classification.viewOfferAdmin"
             android:exported="false" />
         <activity
-            android:name="org.tensorflow.blindhelp.examples.classification.addofferpage"
+            android:name="org.tensorflow.blindhelp.examples.classification.start"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -125,6 +160,9 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+
+
 
     </application>
 

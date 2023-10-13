@@ -53,10 +53,10 @@
             android:text="Time :" />
 
         <TextView
-            android:id="@+id/time2"
+            android:id="@+id/time3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/date2"
+            android:layout_below="@+id/date3"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="157dp"
             android:layout_toEndOf="@+id/textView33"
@@ -65,10 +65,10 @@
             android:textSize="16dp" />
 
         <TextView
-            android:id="@+id/date2"
+            android:id="@+id/date3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/phoneNumber"
+            android:layout_below="@+id/phoneNumber1"
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@+id/textView30"
             android:text="03/20"
@@ -76,7 +76,7 @@
             android:textSize="16dp" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/name1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -86,10 +86,10 @@
             android:textSize="16dp" />
 
         <TextView
-            android:id="@+id/phoneNumber"
+            android:id="@+id/phoneNumber1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/name"
+            android:layout_below="@+id/name1"
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@+id/textView23"
             android:text="Smart Class"
@@ -107,7 +107,7 @@
             android:layout_marginBottom="2dp"
             android:backgroundTint="#4CAF50"
             android:shadowRadius="0"
-            android:text="Accept>> "
+            android:text="View>>> "
             android:textSize="11sp" />
 
 
