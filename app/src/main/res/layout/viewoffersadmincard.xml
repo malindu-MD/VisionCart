@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="150dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -24,59 +24,65 @@
                 android:id="@+id/adminOfferdet"
                 android:layout_width="240dp"
                 android:layout_height="41dp"
-                android:layout_marginStart="28dp"
+
+                android:layout_marginStart="12dp"
+
+               
+
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="6dp"
                 android:text="Customer Handling Lecture"
                 android:textColor="@color/black"
-                android:textSize="16dp"
-                app:layout_constraintBottom_toTopOf="@+id/adminToDate"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/adminPrName"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/adminFromdate"
-                android:layout_width="109dp"
-                android:layout_height="23dp"
+                android:layout_width="115dp"
+                android:layout_height="34dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="15dp"
                 android:text="Date "
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/adminToDate"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/adminPrName" />
 
             <TextView
                 android:id="@+id/adminToDate"
-                android:layout_width="127dp"
-                android:layout_height="23dp"
+                android:layout_width="129dp"
+                android:layout_height="36dp"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="14dp"
-                android:layout_marginBottom="8dp"
+
+                android:layout_marginTop="37dp"
+                android:layout_marginBottom="15dp"
+
                 android:text="Date "
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/deleteButton"
-                app:layout_constraintStart_toEndOf="@+id/adminFromdate" />
+                app:layout_constraintStart_toEndOf="@+id/adminFromdate"
+                app:layout_constraintTop_toBottomOf="@+id/adminOfferdet" />
 
             <TextView
                 android:id="@+id/adminPrName"
-                android:layout_width="108dp"
-                android:layout_height="40dp"
+                android:layout_width="137dp"
+                android:layout_height="41dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginEnd="17dp"
                 android:layout_marginBottom="6dp"
                 android:text="Product Name"
                 android:textColor="@color/black"
-                android:textSize="16dp"
+                android:textSize="20dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/adminFromdate"
-                app:layout_constraintEnd_toStartOf="@+id/adminOfferdet"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -85,11 +91,12 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/updateButton"
-                app:layout_constraintTop_toBottomOf="@+id/adminOfferdet"
-                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/adminToDate"
                 app:srcCompat="@android:drawable/ic_menu_delete"
                 tools:ignore="SpeakableTextPresentCheck" />
 
@@ -97,12 +104,11 @@
                 android:id="@+id/updateButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="4dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/adminOfferdet"
-                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/deleteButton"
                 app:srcCompat="@android:drawable/ic_menu_edit"
                 tools:ignore="SpeakableTextPresentCheck" />
 
