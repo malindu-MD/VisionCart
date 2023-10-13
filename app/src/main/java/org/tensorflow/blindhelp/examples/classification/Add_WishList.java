@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import org.tensorflow.blindhelp.examples.classification.activities.HomePage;
+import org.tensorflow.blindhelp.examples.classification.activities.helpDesk;
 import org.tensorflow.blindhelp.examples.classification.models.WishList;
 import org.tensorflow.lite.examples.classification.R;
 
@@ -162,19 +163,21 @@ public class Add_WishList extends AppCompatActivity implements View.OnLongClickL
 
 
                         default:
-                            if(result.get(0).equals("yes"))
+                            if(result.get(0).toLowerCase().equals("okay"))
                             {
                                 insertDetails(detaillsID.getText().toString(),QuantityID.getText().toString());
 
-                            }else
+                            }
+                            else if(result.get(0).toLowerCase().equals("okay okay")){
+
+                                insertDetails(detaillsID.getText().toString(),QuantityID.getText().toString());
+
+                            }
+
+                            else
+
                             {
-                                speak("Please Restart the app to reset");
-                                new Handler().postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        exitFromApp();
-                                    }
-                                }, 4000);
+                                numberOfClicks--;
                             }
                     }
 

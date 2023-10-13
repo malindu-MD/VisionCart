@@ -104,7 +104,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="47dp"
             android:layout_marginEnd="13dp"
-            app:srcCompat="@android:drawable/ic_menu_delete" />
+            app:srcCompat="@drawable/baseline_delete_forever_24" />
 
 
     </RelativeLayout>
