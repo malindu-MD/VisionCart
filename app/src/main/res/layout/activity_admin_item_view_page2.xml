@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B3B4BD"
+    android:background="#FEFEFE"
     tools:context="org.tensorflow.blindhelp.examples.classification.activities.admin_product_view">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/itemRecyclerView"
-        android:layout_width="385dp"
-        android:layout_height="717dp"
+        android:layout_width="375dp"
+        android:layout_height="750dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,15 +22,30 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="52dp"
         android:backgroundTint="#0C2752"
         android:clickable="true"
         app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.909"
+        app:layout_constraintVertical_bias="0.859"
         app:srcCompat="@drawable/ic_baseline_add"
         app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="436dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/graybackground"
+        android:text="    Generate Product Details Report"
+        android:textAlignment="center"
+        android:textColor="#0C2752"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

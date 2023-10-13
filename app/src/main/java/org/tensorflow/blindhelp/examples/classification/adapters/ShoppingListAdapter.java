@@ -39,8 +39,12 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         CartList request = sList.get(position);
-        holder.cartList.setText(request.getCartList());
-
+        //  holder.cartList.setText(request.getCartList());
+        holder.name.setText(request.getName());
+        holder.price.setText(request.getPrice());
+        holder.mfg.setText(request.getMfg());
+        holder.exp.setText(request.getExp());
+        holder.details.setText(request.getDetails());
     }
 
     @Override
@@ -49,11 +53,22 @@ public class ShoppingListAdapter extends RecyclerView.Adapter<ShoppingListAdapte
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView cartList;
+        //        TextView cartList;
+        TextView name;
+        TextView price;
+        TextView mfg;
+        TextView exp;
+        TextView details;
+
 
         public ViewHolder(View itemView, final OnItemClickListener clickListener) {
             super(itemView);
-            cartList = itemView.findViewById(R.id.oneItemID);
+            name = itemView.findViewById(R.id.nameId);
+            price = itemView.findViewById(R.id.priceId);
+            mfg = itemView.findViewById(R.id.mfgId);
+            exp = itemView.findViewById(R.id.expId);
+            details = itemView.findViewById(R.id.detailsId);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

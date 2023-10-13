@@ -34,6 +34,7 @@ public class ShoppingList extends AppCompatActivity implements View.OnClickListe
     private RecyclerView recyclerList;
     private TextToSpeech tts;
     private ArrayList<CartList> cartList;
+    ShoppingListAdapter shoppingListAdapter;
     private DatabaseReference database;
     private Button readItemBtn;
     private int currentItemIndex = 0; // Track the current item being read
@@ -57,7 +58,8 @@ public class ShoppingList extends AppCompatActivity implements View.OnClickListe
         recyclerList.setHasFixedSize(true);
 
         cartList = new ArrayList<>();
-
+//        shoppingListAdapter = new ShoppingListAdapter(this,cartList);
+//        recyclerList.setAdapter(shoppingListAdapter);
         // Initialize the Firebase database reference
         database = FirebaseDatabase.getInstance().getReference("CartList"); // Make sure this is correctly pointing to your database reference
 
@@ -68,8 +70,12 @@ public class ShoppingList extends AppCompatActivity implements View.OnClickListe
             public void onClick(View view) {
                 // Check if there are items to read
                 if (currentItemIndex < cartList.size()) {
-                    String cartDetails = cartList.get(currentItemIndex).getCartList();
-                    speak("Item Number " + (currentItemIndex + 1) + "\n" + cartDetails+"\nLong press the button to remove it");
+                    String namep = cartList.get(currentItemIndex).getName();
+                    String pricepp = cartList.get(currentItemIndex).getPrice();
+                    String mfgpp = cartList.get(currentItemIndex).getMfg();
+                    String exppp = cartList.get(currentItemIndex).getExp();
+                    String detailspp = cartList.get(currentItemIndex).getDetails();
+                    speak("Item Number " + (currentItemIndex + 1) + "\n" + namep+pricepp+mfgpp+exppp+detailspp+"\nLong press the button to remove it");
                     currentItemIndex++; // Move to the next item
                 } else {
                     speak("No more items to read.");
@@ -100,8 +106,15 @@ public class ShoppingList extends AppCompatActivity implements View.OnClickListe
                     mAdapter.setOnItemClickListener(new ShoppingListAdapter.OnItemClickListener() {
                         @Override
                         public void onItemClick(int position) {
-                            String cartDetails = cartList.get(position).getCartList();
-                            speak("You selected " + cartDetails);
+                            String pname = cartList.get(position).getName();
+                            String pprice = cartList.get(position).getPrice();
+                            String pmfg = cartList.get(position).getMfg();
+                            String pexp = cartList.get(position).getExp();
+                            String pdetails = cartList.get(position).getDetails();
+
+
+
+                            speak("You selected " + pname+pprice+pmfg+pexp+pdetails);
                         }
                     });
                 }
@@ -183,14 +196,14 @@ public class ShoppingList extends AppCompatActivity implements View.OnClickListe
             recyclerList.getAdapter().notifyDataSetChanged();
 
             if (currentItemIndex < cartList.size()) {
-                String cartDetails = cartList.get(currentItemIndex).getCartList();
+                String cartDetails = cartList.get(currentItemIndex).getName();
                 speak("Item Number " + (currentItemIndex + 1) + "\n" + cartDetails );
             } else if (cartList.isEmpty()) {
                 speak("No more items to read.");
             } else {
                 // Decrement the index to move to the previous item
                 currentItemIndex--;
-                String cartDetails = cartList.get(currentItemIndex).getCartList();
+                String cartDetails = cartList.get(currentItemIndex).getName();
                 speak("Item Number " + (currentItemIndex + 1) + "\n" + cartDetails);
             }
         } else {
@@ -207,4 +220,6 @@ public class ShoppingList extends AppCompatActivity implements View.OnClickListe
         }
         super.onDestroy();
     }
+
+
 }
