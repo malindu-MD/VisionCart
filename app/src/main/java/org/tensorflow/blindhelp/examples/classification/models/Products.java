@@ -2,13 +2,22 @@ package org.tensorflow.blindhelp.examples.classification.models;
 
 public class Products {
 
-    String pName,pMfgDate,pExpDate,pPrice,pDetails;
+    String pID,pName,pMfgDate,pExpDate,pPrice,pDetails;
+
+    public String getpID() {
+        return pID;
+    }
+
+    public void setpID(String pID) {
+        this.pID = pID;
+    }
 
     Products(){
 
     }
 
-    public Products(String pName, String pMfgDate, String pExpDate, String pPrice, String pDetails) {
+    public Products(String pID,String pName, String pMfgDate, String pExpDate, String pPrice, String pDetails) {
+        this.pID=pID;
         this.pName = pName;
         this.pMfgDate = pMfgDate;
         this.pExpDate = pExpDate;

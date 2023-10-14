@@ -75,7 +75,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <TextView
-        android:id="@+id/textds"
+        android:id="@+id/textView10"
         android:layout_width="336dp"
         android:layout_height="33dp"
         android:layout_marginStart="26dp"
@@ -100,7 +100,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textds" />
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/WishHomeID"
@@ -113,7 +113,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/btnMic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/untitled_design__8_" />

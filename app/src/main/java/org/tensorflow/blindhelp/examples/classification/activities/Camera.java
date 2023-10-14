@@ -10,12 +10,16 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -28,6 +32,11 @@ public class Camera extends AppCompatActivity implements View.OnClickListener, V
 
     private static final long SCAN_TIMEOUT = 7000; // 4 seconds
 
+    private TextView nameP;
+    private TextView detailsP;
+    private TextView priceP;
+    private TextView expP;
+    private TextView mfgP;
     private String scannedData;
     private TextToSpeech tts;
     private TextView resultID;
@@ -43,7 +52,7 @@ public class Camera extends AppCompatActivity implements View.OnClickListener, V
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_camera);
 
-        resultID = findViewById(R.id.resultID);
+        //resultID = findViewById(R.id.resultID);
         homeID = findViewById(R.id.homeid);
         scanID = findViewById(R.id.scanID);
         cartID = findViewById(R.id.cartID);
@@ -115,9 +124,58 @@ public class Camera extends AppCompatActivity implements View.OnClickListener, V
         if (result != null) {
             if (result.getContents() != null) {
                 scannedData = result.getContents();
+
+
+
+
+                nameP = findViewById(R.id.nameP); // Assuming 'aaa' is the ID of your TextView in the XML layout
+                detailsP =findViewById(R.id.detailsP);
+                priceP = findViewById(R.id.priceP);
+                expP =findViewById(R.id.expP);
+                mfgP=findViewById(R.id.mfgP);
+
+                final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("products");
+                databaseReference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
+
+                            String pID = String.valueOf(dataSnapshot1.child("pID").getValue());
+                            if (pID.equals(scannedData)) {
+
+                                String pName = String.valueOf(dataSnapshot1.child("pName").getValue());
+                                nameP.setText(pName);
+
+                                String price = String.valueOf(dataSnapshot1.child("pPrice").getValue());
+                                priceP.setText(price);
+                                String mfg = String.valueOf(dataSnapshot1.child("pMfgDate").getValue());
+                                mfgP.setText(mfg);
+                                String exp = String.valueOf(dataSnapshot1.child("pExpDate").getValue());
+                                expP.setText(exp);
+                                String details1 = String.valueOf(dataSnapshot1.child("pDetails").getValue());
+                                detailsP.setText(details1);
+
+                                // Toast.makeText(Camera.this, "CartList value equals the given value.", Toast.LENGTH_SHORT).show();
+                                speak("Product is scanned\n" + "Product Name\n"+pName+"\nPrice\n"+price+"Rupees"+"\nManufacture Date\n"+mfg+"\nExpire Date\n"+exp+"\nProduct Details\n"+details1);
+
+                                break;
+                            }
+                            else{
+                                Toast.makeText(Camera.this, "not found.", Toast.LENGTH_SHORT).show();
+                                speak("No Product Data here");
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(Camera.this, "An error occurred.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
                 cancelScanTimeout(); // Stop the "No scanning detected" message
-                speak("Product is scanned\n" + scannedData);
-                resultID.setText(scannedData);
+//                speak("Product is scanned\n" + "Product Name\n"+nameP+"Product Details\n"+detailsP);
+                //  resultID.setText(scannedData);
                 cancelScanTimeout();
             } else {
                 cancelScanTimeout();
@@ -166,7 +224,7 @@ public class Camera extends AppCompatActivity implements View.OnClickListener, V
         Intent intent;
         if (view.getId() == R.id.scanID) {
             recreate();
-          //  speak("Scanning ");
+            //  speak("Scanning ");
             return true;
         } else if (view.getId() == R.id.homeid) {
             intent = new Intent(this, HomePage.class);
@@ -181,12 +239,25 @@ public class Camera extends AppCompatActivity implements View.OnClickListener, V
     }
 
     private void insertCartListData() {
-        String cartList = resultID.getText().toString();
-        CartList cartlist = new CartList(cartList);
-        cartListDbRef.push().setValue(cartlist);
-        Toast.makeText(Camera.this, "Data Inserted Successfully", Toast.LENGTH_SHORT).show();
-        speak("Product Added to Shopping Cart List");
+        String name = nameP.getText().toString();
+        String price = priceP.getText().toString();
+        String mfg = mfgP.getText().toString();
+        String exp = expP.getText().toString();
+        String details = detailsP.getText().toString();
+
+        if (!name.isEmpty() && !details.isEmpty()) {
+            CartList cartList = new CartList(name,price,mfg,exp,details); // Create a CartList object with name and details
+
+            DatabaseReference newCartItemRef = cartListDbRef.push(); // Create a unique key for the new item
+            newCartItemRef.setValue(cartList);
+
+            Toast.makeText(Camera.this, "Data Inserted Successfully", Toast.LENGTH_SHORT).show();
+            speak("Product Added to Shopping Cart List");
+        } else {
+            Toast.makeText(Camera.this, "Name and details must not be empty", Toast.LENGTH_SHORT).show();
+        }
     }
+
 
     @Override
     protected void onDestroy() {

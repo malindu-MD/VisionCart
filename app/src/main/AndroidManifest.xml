@@ -38,7 +38,8 @@
         <activity
             android:name="org.tensorflow.blindhelp.examples.classification.activities.admin_product_view"
             android:exported="false"
-            android:theme="@style/AppThemeWithActionBar"/>
+            android:theme="@style/AppThemeWithActionBar"
+            android:label="Product Details"/>
 
         <activity
             android:name="org.tensorflow.blindhelp.examples.classification.blindRegister"

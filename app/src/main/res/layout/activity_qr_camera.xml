@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="20dp"
     tools:context="org.tensorflow.blindhelp.examples.classification.activities.Camera">
 
     <androidx.cardview.widget.CardView
@@ -30,7 +29,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/scanID"
         android:layout_width="403dp"
-        android:layout_height="124dp"
+        android:layout_height="160dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="150dp"
@@ -42,7 +41,7 @@
 
         <ImageView
             android:id="@+id/imageView13"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
@@ -50,59 +49,175 @@
 
     </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cartID"
-        android:layout_width="402dp"
-        android:layout_height="124dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="279dp"
-        android:backgroundTint="#0C2752"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:id="@+id/imageView16"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/untitled_design__9_" />
-    </androidx.cardview.widget.CardView>
-
     <TextView
         android:id="@+id/textView"
-        android:layout_width="392dp"
-        android:layout_height="56dp"
+        android:layout_width="383dp"
+        android:layout_height="51dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="34dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
         android:background="#0C2752"
-        android:padding="10dp"
+        android:padding="8dp"
         android:text="S E A R C H   R E S U L T"
         android:textAlignment="center"
         android:textColor="#FEFEFE"
         android:textSize="26sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.205"
+        app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/resultID"
-        android:layout_width="340dp"
-        android:layout_height="179dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="45dp"
-        android:background="#FEFEFE"
-        android:textColor="#020000"
-        android:textSize="20sp"
-        android:textStyle="bold"
+    <LinearLayout
+        android:layout_width="385dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Name             -"
+                android:textAlignment="gravity"
+                android:textColor="#0C2752"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/nameP"
+                android:layout_width="236dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:textAlignment="gravity"
+                android:textColor="#0C2752"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Price              -"
+                android:textAlignment="gravity"
+                android:textColor="#0C2752"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/priceP"
+                android:layout_width="166dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:textAlignment="gravity"
+                android:textColor="#0C2752"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView36"
+                android:layout_width="45dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="MFG Date     -"
+                android:textAlignment="gravity"
+                android:textColor="#0C2752"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/mfgP"
+                android:layout_width="167dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:textAlignment="gravity"
+                android:textColor="#0C2752"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView34"
+                android:layout_width="63dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Exp Date       -"
+                android:textAlignment="gravity"
+                android:textColor="#0C2752"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/expP"
+                android:layout_width="191dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:textAlignment="gravity"
+                android:textColor="#0C2752"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView38"
+                android:layout_width="138dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:text="Details          -"
+                android:textAlignment="gravity"
+                android:textColor="#0C2752"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/detailsP"
+                android:layout_width="255dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:textAlignment="gravity"
+                android:textColor="#0C2752"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
