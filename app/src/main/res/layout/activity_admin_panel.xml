@@ -86,44 +86,44 @@
                             app:contentPaddingLeft="25dp"
                             app:contentPaddingRight="25dp"
                             app:contentPaddingTop="20dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="183dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/imageView11"
+                                        android:layout_width="95dp"
+                                        android:layout_marginStart="10dp"
+                                        android:layout_height="104dp"
+                                        app:srcCompat="@drawable/discouint" />
+                                </LinearLayout>
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:orientation="vertical"
-                                    android:weightSum="2">
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
 
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="183dp"
-                                        android:layout_weight="1"
-                                        android:orientation="vertical">
 
-                                        <ImageView
-                                            android:id="@+id/imageView11"
-                                            android:layout_width="95dp"
-                                            android:layout_marginStart="10dp"
-                                            android:layout_height="104dp"
-                                            app:srcCompat="@drawable/discouint" />
-                                    </LinearLayout>
-                                    <LinearLayout
+                                    <TextView
+                                        android:layout_marginStart="10dp"
+                                        android:layout_marginTop="10dp"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:layout_weight="1"
-                                        android:orientation="vertical">
+                                        android:text="Add Offer"
+                                        android:textColor="@color/white"
+                                        android:textSize="22dp">
 
-
-                                        <TextView
-                                            android:layout_marginStart="10dp"
-                                            android:layout_marginTop="10dp"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:text="Add Offer"
-                                            android:textColor="@color/white"
-                                            android:textSize="22dp">
-
-                                        </TextView>
-                                    </LinearLayout>
+                                    </TextView>
                                 </LinearLayout>
+                            </LinearLayout>
 
 
 
@@ -204,6 +204,7 @@
                         android:padding="10dp">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/addProductBtn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="5dp"
@@ -226,7 +227,14 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
+                                    <ImageView
+                                        android:id="@+id/imageView3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="103dp"
+                                        app:srcCompat="@drawable/add_products" />
+
                                 </LinearLayout>
+
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
@@ -235,13 +243,13 @@
 
 
                                     <TextView
-                                        android:layout_marginStart="10dp"
-                                        android:layout_marginTop="10dp"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:text="Add Offer"
+                                        android:layout_marginStart="10dp"
+                                        android:layout_marginTop="10dp"
+                                        android:text="Add Products"
                                         android:textColor="@color/white"
-                                        android:textSize="22dp">
+                                        android:textSize="16sp">
 
                                     </TextView>
                                 </LinearLayout>
@@ -258,6 +266,7 @@
                         android:padding="10dp">
 
                         <androidx.cardview.widget.CardView
+                            android:id="@+id/viewProductBtn"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginRight="5dp"
@@ -267,6 +276,7 @@
                             app:contentPaddingLeft="25dp"
                             app:contentPaddingRight="25dp"
                             app:contentPaddingTop="20dp">
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -280,11 +290,12 @@
                                     android:orientation="vertical">
 
                                     <ImageView
-                                        android:id="@+id/imageView3"
+                                        android:id="@+id/imageView19"
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        app:srcCompat="@android:drawable/btn_dialog" />
+                                        android:layout_height="wrap_content"
+                                        app:srcCompat="@drawable/view_products" />
                                 </LinearLayout>
+
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
@@ -293,13 +304,13 @@
 
 
                                     <TextView
-                                        android:layout_marginStart="10dp"
-                                        android:layout_marginTop="10dp"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:text="Add Offer"
+                                        android:layout_marginStart="10dp"
+                                        android:layout_marginTop="10dp"
+                                        android:text="View Products"
                                         android:textColor="@color/white"
-                                        android:textSize="22dp">
+                                        android:textSize="16sp">
 
                                     </TextView>
                                 </LinearLayout>

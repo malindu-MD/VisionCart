@@ -21,7 +21,7 @@ import java.util.Locale;
 public class ShoppingList_page extends AppCompatActivity implements View.OnLongClickListener,View.OnClickListener,TextToSpeech.OnInitListener{
 
     private TextToSpeech tts;
- //   CardView ViewShoppingListID;
+    //   CardView ViewShoppingListID;
     CardView addWishList;
     CardView homeIDDD;
     CardView ViewWishListID;
@@ -31,18 +31,18 @@ public class ShoppingList_page extends AppCompatActivity implements View.OnLongC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_list_page);
 
-     //   ViewShoppingListID = findViewById(R.id.ViewShoppingListID);
+        //   ViewShoppingListID = findViewById(R.id.ViewShoppingListID);
         homeIDDD = findViewById(R.id.homeIDDD);
         addWishList = findViewById(R.id.addWishList);
         ViewWishListID = findViewById(R.id.ViewWishListID);
 
 
-   //     ViewShoppingListID.setOnClickListener(this);
+        //     ViewShoppingListID.setOnClickListener(this);
         homeIDDD.setOnClickListener(this);
         addWishList.setOnClickListener(this);
         ViewWishListID.setOnClickListener(this);
 
-  //      ViewShoppingListID.setOnLongClickListener(this);
+        //      ViewShoppingListID.setOnLongClickListener(this);
         homeIDDD.setOnLongClickListener(this);
         addWishList.setOnLongClickListener(this);
         ViewWishListID.setOnLongClickListener(this);
@@ -74,7 +74,7 @@ public class ShoppingList_page extends AppCompatActivity implements View.OnLongC
 //         else if (view.getId() == R.id.ViewShoppingListID) {
 //            text = "Please Long Press to go View Shopping List";
 //        }
-         else if (view.getId() == R.id.ViewWishListID) {
+        else if (view.getId() == R.id.ViewWishListID) {
             text = "Please Long Press to View wish list page";
         }
         else if (view.getId() == R.id.addWishList) {

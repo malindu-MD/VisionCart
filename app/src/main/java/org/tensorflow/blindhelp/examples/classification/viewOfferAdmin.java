@@ -19,9 +19,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.File;
@@ -168,21 +174,47 @@ public class viewOfferAdmin extends AppCompatActivity {
             // Open the document for writing
             document.open();
 
-            // Extract data from your RecyclerView and add it to the PDF
+            // Create a table with custom styling
+            PdfPTable table = new PdfPTable(4); // 4 columns
+            Font tableHeaderFont = new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD);
+            Font tableCellFont = new Font(Font.FontFamily.HELVETICA, 10);
+
+            // Define the table heading row
+            PdfPCell headingCell = new PdfPCell(new Phrase("Offer List", tableHeaderFont));
+            headingCell.setColspan(4); // Span all 4 columns
+            headingCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            headingCell.setBackgroundColor(BaseColor.LIGHT_GRAY); // Set background color for the heading
+            table.addCell(headingCell);
+
+            // Define table header cells
+            PdfPCell cell = new PdfPCell(new Phrase("Product Name", tableHeaderFont));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            table.addCell(cell);
+
+            cell = new PdfPCell(new Phrase("Offer Details", tableHeaderFont));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            table.addCell(cell);
+
+            cell = new PdfPCell(new Phrase("Start Date", tableHeaderFont));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            table.addCell(cell);
+
+            cell = new PdfPCell(new Phrase("End Date", tableHeaderFont));
+            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+            table.addCell(cell);
+
+            table.setHeaderRows(2); // The first 2 rows will be treated as headers
+
+            // Extract data from your RecyclerView and add it to the PDF as table rows
             for (int i = 0; i < list.size(); i++) {
                 Offers offer = list.get(i);
-                String productName = offer.getPname();
-                String offerDetails = offer.getOfferDetails();
-                String startDate = offer.getDateStart();
-                String endDate = offer.getDateEnd();
-
-                // Add the data to the PDF
-                document.add(new Paragraph("Product Name: " + productName));
-                document.add(new Paragraph("Offer Details: " + offerDetails));
-                document.add(new Paragraph("Start Date: " + startDate));
-                document.add(new Paragraph("End Date: " + endDate));
-                document.add(new Paragraph("\n")); // Add some spacing between items
+                table.addCell(new Phrase(offer.getPname(), tableCellFont));
+                table.addCell(new Phrase(offer.getOfferDetails(), tableCellFont));
+                table.addCell(new Phrase(offer.getDateStart(), tableCellFont));
+                table.addCell(new Phrase(offer.getDateEnd(), tableCellFont));
             }
+
+            document.add(table); // Add the table to the PDF
 
             // Close the document
             document.close();

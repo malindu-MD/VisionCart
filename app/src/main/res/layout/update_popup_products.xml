@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -58,6 +59,7 @@
             android:background="@drawable/rounded"
             android:gravity="center"
             android:inputType="number" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -68,7 +70,7 @@
         <TextView
             android:layout_width="132dp"
             android:layout_height="30dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="4dp"
             android:layout_marginBottom="5dp"
             android:gravity="center|left"
             android:text="             MFG Date"
@@ -79,10 +81,18 @@
             android:layout_width="200dp"
             android:layout_height="35dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginTop="4dp"
             android:background="@drawable/rounded"
             android:gravity="center"
             android:inputType="datetime|date" />
+
+        <ImageView
+            android:id="@+id/mfgB"
+            android:layout_width="41dp"
+            android:layout_height="36dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/baseline_calendar_month_24" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -93,7 +103,7 @@
         <TextView
             android:layout_width="132dp"
             android:layout_height="31dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="4dp"
             android:layout_marginBottom="5dp"
             android:gravity="center|left"
             android:text="              EXP Date"
@@ -104,10 +114,18 @@
             android:layout_width="200dp"
             android:layout_height="35dp"
             android:layout_marginLeft="15dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginTop="4dp"
             android:background="@drawable/rounded"
             android:gravity="center"
             android:inputType="datetime|date" />
+
+        <ImageView
+            android:id="@+id/expB"
+            android:layout_width="38dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="4dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/baseline_calendar_month_24" />
     </LinearLayout>
 
     <TextView

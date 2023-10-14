@@ -26,14 +26,19 @@ public class Completed extends RecyclerView.Adapter<Completed.ViewHolder> {
 
     public interface OnItemClickListener {
         void onItemClick(int position);
+
+        void onDeleteButtonClick(int position); // Added delete method
+
     }
 
     public void setOnItemClickListener(OnItemClickListener clickListener) {
         mListener = clickListener;
     }
 
-    public Completed(ArrayList<VolunteerRequest> rList) {
+    public Completed(ArrayList<VolunteerRequest> rList, OnItemClickListener clickListener) {
         this.rList = rList;
+        this.mListener = clickListener;
+
     }
 
     @Override
@@ -50,6 +55,18 @@ public class Completed extends RecyclerView.Adapter<Completed.ViewHolder> {
         holder.time.setText(request.getTime());
         holder.phoneNumber.setText(request.getPhoneNumber());
 
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mListener != null) {
+                    int position = holder.getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        mListener.onDeleteButtonClick(position);
+                    }
+                }
+            }
+        });
+
 
 
     }
@@ -58,11 +75,7 @@ public class Completed extends RecyclerView.Adapter<Completed.ViewHolder> {
     public int getItemCount() {
         return rList.size();
     }
-    public void updateDataSet(ArrayList<VolunteerRequest> newDataSet) {
-        rList.clear();
-        rList.addAll(newDataSet);
-        notifyDataSetChanged();
-    }
+
 
 
 
@@ -82,7 +95,7 @@ public class Completed extends RecyclerView.Adapter<Completed.ViewHolder> {
             phoneNumber = itemView.findViewById(R.id.phoneNumber1);
             delete =itemView.findViewById(R.id.deleted);
 
-            delete.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (clickListener != null) {
@@ -98,7 +111,3 @@ public class Completed extends RecyclerView.Adapter<Completed.ViewHolder> {
 
 
 }
-
-
-
-

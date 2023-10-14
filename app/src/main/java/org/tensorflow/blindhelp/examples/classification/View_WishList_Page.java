@@ -84,7 +84,7 @@ public class View_WishList_Page extends AppCompatActivity implements View.OnClic
 
 
                             speak("You select "+wishDetails1+"\n");
-                            
+
 
 
 

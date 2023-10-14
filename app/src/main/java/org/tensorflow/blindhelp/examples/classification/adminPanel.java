@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.FileProvider;
 
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +28,10 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 import org.tensorflow.blindhelp.examples.classification.models.Blind;
 import org.tensorflow.blindhelp.examples.classification.models.VolunteerRequest;
+
+import org.tensorflow.blindhelp.examples.classification.activities.addProducts;
+import org.tensorflow.blindhelp.examples.classification.activities.admin_product_view;
+
 import org.tensorflow.lite.examples.classification.R;
 
 import java.io.File;
@@ -53,6 +58,8 @@ public class adminPanel extends AppCompatActivity {
         blindList = new ArrayList<>();
         CardView viewOffers = (CardView) findViewById(R.id.viewOffers);
         CardView addoffer = (CardView) findViewById(R.id.addOffer);
+        CardView addProductBtn = (CardView) findViewById(R.id.addProductBtn);
+        CardView viewProductBtn = (CardView) findViewById(R.id.viewProductBtn);
 
         addoffer.setOnClickListener(view -> {
             // Open the OffersActivity when the CardView is clicked
@@ -65,6 +72,7 @@ public class adminPanel extends AppCompatActivity {
             Intent intent = new Intent(adminPanel.this, viewOfferAdmin.class);
             startActivity(intent);
         });
+
 
         userreport.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,6 +169,18 @@ public class adminPanel extends AppCompatActivity {
             Toast.makeText(this, "No PDF viewer app installed", Toast.LENGTH_SHORT).show();
         }
 
+
+        addProductBtn.setOnClickListener(view -> {
+            // Open the OffersActivity when the CardView is clicked
+            Intent intent = new Intent(adminPanel.this, addProducts.class);
+            startActivity(intent);
+        });
+
+        viewProductBtn.setOnClickListener(view -> {
+            // Open the OffersActivity when the CardView is clicked
+            Intent intent = new Intent(adminPanel.this, admin_product_view.class);
+            startActivity(intent);
+        });
 
     }
 }

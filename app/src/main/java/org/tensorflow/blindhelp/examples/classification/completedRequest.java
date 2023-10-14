@@ -50,9 +50,9 @@ public class completedRequest extends AppCompatActivity {
         setContentView(R.layout.activity_completed_request);
 
 
-          back3=findViewById(R.id.back2);
-          text=findViewById(R.id.accept);
-          sessionManager = new SessionManager(this);
+        back3=findViewById(R.id.back2);
+        text=findViewById(R.id.accept);
+        sessionManager = new SessionManager(this);
 
 
         recyclerView = findViewById(R.id.completeList);
@@ -62,6 +62,8 @@ public class completedRequest extends AppCompatActivity {
         volunteerRequests = new ArrayList<>();
 
         getProductData();
+
+
 
 
 
@@ -87,38 +89,73 @@ public class completedRequest extends AppCompatActivity {
         database.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
+                volunteerRequests.clear();
+
                     for (DataSnapshot productSnapshot : snapshot.getChildren()) {
                         VolunteerRequest product = productSnapshot.getValue(VolunteerRequest.class);
-                        if (product != null) {
+
                             if((product.getVolunteer().equals(sessionManager.getUserId())) && (product.getStatus().equals("Completed"))){
                                 volunteerRequests.add(product);
 
 
                             }
-                        }
-                    }
-                    mAdapter = new Completed(volunteerRequests);
-                    recyclerView.setAdapter(mAdapter);
 
-                    mAdapter.setOnItemClickListener(new Completed.OnItemClickListener() {
+                    }
+                    mAdapter = new Completed(volunteerRequests, new Completed.OnItemClickListener() {
                         @Override
                         public void onItemClick(int position) {
 
+                        }
+
+                        @Override
+                        public void onDeleteButtonClick(int position) {
+
+
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(completedRequest.this);
+
+
+                            builder.setTitle("Are You Sure You Want to delete It?"); // Set the dialog title
+
+                            // Add a button to close the dialog
+                            builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                    VolunteerRequest request = volunteerRequests.get(position);
+
+                                    String requestId = request.getID();
+
+                                    database.child(requestId).removeValue();
 
 
 
 
+                                }
+                            });
 
 
-           showDetailsDialog(position);
+                            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
 
+                            // Create and show the AlertDialog
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
 
 
 
                         }
                     });
-                }
+
+
+
+
+
+                recyclerView.setAdapter(mAdapter);
             }
 
             @Override
@@ -130,56 +167,7 @@ public class completedRequest extends AppCompatActivity {
 
 
     private void showDetailsDialog(int position) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-
-        builder.setTitle("Are You Sure You Want to delete It?"); // Set the dialog title
-
-        // Add a button to close the dialog
-        builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                VolunteerRequest request = volunteerRequests.get(position);
-
-                String requestId = request.getID();
-
-                DatabaseReference requestRef = database.child(requestId);
-
-
-
-requestRef.removeValue(new DatabaseReference.CompletionListener() {
-    @Override
-    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-
-        if (error == null) {
-            // Successfully deleted
-            volunteerRequests.remove(position);
-            mAdapter.updateDataSet(volunteerRequests);
-        } else {
-            // Handle the error
-            // You can show a toast or display an error message
-        }
-
-    }
-});
-
-
-
-            }
-        });
-
-
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-
-        // Create and show the AlertDialog
-        AlertDialog dialog = builder.create();
-        dialog.show();
     }
 
 }
