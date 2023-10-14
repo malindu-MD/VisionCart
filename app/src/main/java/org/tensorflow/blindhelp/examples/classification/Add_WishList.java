@@ -158,7 +158,7 @@ public class Add_WishList extends AppCompatActivity implements View.OnLongClickL
                         case 2:
 
                             QuantityID.setText(result.get(0));
-                            speak("Please Confirm the Details\n Product Details : " + detaillsID.getText().toString() + "\nQuantity is : " + QuantityID.getText().toString() + "\n Say Yes to confirm\n Say No To canncel ");
+                            speak("Please Confirm the Details\n Product Details : " + detaillsID.getText().toString() + "\nQuantity is : " + QuantityID.getText().toString() + "\n Say okay to confirm\n Say No To cancel ");
                             break;
 
 
@@ -192,7 +192,7 @@ public class Add_WishList extends AppCompatActivity implements View.OnLongClickL
                         speak("Please tell Quantity ");
                         break;
                     default:
-                        speak("say yes or no");
+                        speak("say okay or no");
                         break;
                 }
                 numberOfClicks--;

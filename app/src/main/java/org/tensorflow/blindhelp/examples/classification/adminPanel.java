@@ -45,6 +45,8 @@ public class adminPanel extends AppCompatActivity {
     private DatabaseReference database;
     private ImageView userreport;
 
+    private  CardView addProductBtn,viewProductBtn;
+
 
 
     @Override
@@ -58,8 +60,8 @@ public class adminPanel extends AppCompatActivity {
         blindList = new ArrayList<>();
         CardView viewOffers = (CardView) findViewById(R.id.viewOffers);
         CardView addoffer = (CardView) findViewById(R.id.addOffer);
-        CardView addProductBtn = (CardView) findViewById(R.id.addProductBtn);
-        CardView viewProductBtn = (CardView) findViewById(R.id.viewProductBtn);
+         addProductBtn = (CardView) findViewById(R.id.addProductBtn);
+         viewProductBtn = (CardView) findViewById(R.id.viewProductBtn);
 
         addoffer.setOnClickListener(view -> {
             // Open the OffersActivity when the CardView is clicked
@@ -72,6 +74,18 @@ public class adminPanel extends AppCompatActivity {
             Intent intent = new Intent(adminPanel.this, viewOfferAdmin.class);
             startActivity(intent);
         });
+        addProductBtn.setOnClickListener(view -> {
+            // Open the OffersActivity when the CardView is clicked
+            Intent intent = new Intent(adminPanel.this, addProducts.class);
+            startActivity(intent);
+        });
+
+        viewProductBtn.setOnClickListener(view -> {
+            // Open the OffersActivity when the CardView is clicked
+            Intent intent = new Intent(adminPanel.this, admin_product_view.class);
+            startActivity(intent);
+        });
+
 
 
         userreport.setOnClickListener(new View.OnClickListener() {
@@ -170,17 +184,6 @@ public class adminPanel extends AppCompatActivity {
         }
 
 
-        addProductBtn.setOnClickListener(view -> {
-            // Open the OffersActivity when the CardView is clicked
-            Intent intent = new Intent(adminPanel.this, addProducts.class);
-            startActivity(intent);
-        });
-
-        viewProductBtn.setOnClickListener(view -> {
-            // Open the OffersActivity when the CardView is clicked
-            Intent intent = new Intent(adminPanel.this, admin_product_view.class);
-            startActivity(intent);
-        });
 
     }
 }

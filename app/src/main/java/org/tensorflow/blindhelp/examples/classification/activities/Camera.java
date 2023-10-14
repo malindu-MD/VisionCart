@@ -55,15 +55,12 @@ public class Camera extends AppCompatActivity implements View.OnClickListener, V
         //resultID = findViewById(R.id.resultID);
         homeID = findViewById(R.id.homeid);
         scanID = findViewById(R.id.scanID);
- //       cartID = findViewById(R.id.cartID);
 
         homeID.setOnClickListener(this);
         scanID.setOnClickListener(this);
-        cartID.setOnClickListener(this);
 
         scanID.setOnLongClickListener(this);
         homeID.setOnLongClickListener(this);
-        cartID.setOnLongClickListener(this);
 
         tts = new TextToSpeech(this, this);
         tts.setLanguage(Locale.UK);
@@ -209,11 +206,7 @@ public class Camera extends AppCompatActivity implements View.OnClickListener, V
             text = "Please Long Press to Go Home page";
         } else if (view.getId() == R.id.scanID) {
             text = "Please Long Press to Scan Again ";
-        }
-//        else if (view.getId() == R.id.cartID) {
-//            text = "Please Long Press to add shopping list";
-//        }
-        else {
+        }  else {
             throw new IllegalArgumentException("Undefined Clicked");
         }
 
@@ -232,12 +225,7 @@ public class Camera extends AppCompatActivity implements View.OnClickListener, V
             intent = new Intent(this, HomePage.class);
             startActivity(intent);
             return true;
-        }
-//        else if (view.getId() == R.id.cartID) {
-//            insertCartListData();
-//            return true;
-//        }
-        else {
+        }else {
             throw new IllegalArgumentException("Undefined Clicked");
         }
     }
@@ -271,5 +259,5 @@ public class Camera extends AppCompatActivity implements View.OnClickListener, V
             tts.shutdown();
         }
         super.onDestroy();
-    }
+}
 }
