@@ -1,6 +1,6 @@
 package org.tensorflow.blindhelp.examples.classification.models;
 
-public class VolunteerRequest {
+public class VolunteerRequest extends Blind {
 
 
     String id;

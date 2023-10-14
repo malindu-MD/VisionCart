@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context="org.tensorflow.blindhelp.examples.classification.adminPanel">
 
+    <ImageView
+        android:id="@+id/downloadpdf2"
+        android:layout_width="92dp"
+        android:layout_height="86dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:src="@drawable/downloads" />
+
     <androidx.cardview.widget.CardView
         android:backgroundTint="@color/white"
         android:layout_width="match_parent"
@@ -218,11 +226,6 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                    <ImageView
-                                        android:id="@+id/imagedView3"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        app:srcCompat="@android:drawable/btn_dialog" />
                                 </LinearLayout>
                                 <LinearLayout
                                     android:layout_width="match_parent"
@@ -328,9 +331,7 @@
                             app:contentPaddingBottom="20dp"
                             app:contentPaddingLeft="25dp"
                             app:contentPaddingRight="25dp"
-                            app:contentPaddingTop="20dp">
-
-                        </androidx.cardview.widget.CardView>
+                            app:contentPaddingTop="20dp"/>
                     </LinearLayout>
 
                     <LinearLayout
@@ -349,7 +350,49 @@
                             app:contentPaddingBottom="20dp"
                             app:contentPaddingLeft="25dp"
                             app:contentPaddingRight="25dp"
-                            app:contentPaddingTop="20dp"/>
+                            app:contentPaddingTop="20dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:weightSum="2">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="183dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/userreport"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="86dp"
+                                        android:layout_gravity="center"
+                                        android:layout_margin="10dp"
+                                        android:src="@drawable/downloads" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="39dp"
+                                        android:layout_marginStart="0dp"
+                                        android:layout_marginTop="10dp"
+                                        android:text="Get User List"
+                                        android:textColor="@color/white"
+                                        android:textSize="22dp">
+
+                                    </TextView>
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
                     </LinearLayout>
                 </LinearLayout>
 
