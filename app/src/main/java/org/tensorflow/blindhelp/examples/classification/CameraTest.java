@@ -221,7 +221,7 @@ public class CameraTest extends AppCompatActivity implements TextToSpeech.OnInit
                     maxPos = i;
                 }
             }
-            String[] classes = {"Five hundred rupees", "One hundred rupees"};
+            String[] classes = {"1000", "500","100"};
             result.setText(classes[maxPos]);
             speak("THis is "+classes[maxPos]);
 
