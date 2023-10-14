@@ -85,8 +85,19 @@ public class View_WishList_Page extends AppCompatActivity implements View.OnClic
 
                             speak("You select "+wishDetails1+"\n");
 
+                        }
 
+                        @Override
+                        public void onDeleteButtonClick(int position) {
 
+                                // Handle item deletion
+                                if (position >= 0 && position < WishList.size()) {
+                                    // Remove the item from the list
+                                    WishList.remove(position);
+
+                                    // Notify the adapter that an item has been removed
+                                    mAdapter.notifyItemRemoved(position);
+                                }
 
 
 
