@@ -53,12 +53,12 @@ public class volunteerLogin extends AppCompatActivity {
         usersRef = FirebaseDatabase.getInstance().getReference("volunteer");
         sessionManager = new SessionManager(this);
 
-        if(sessionManager.isLoggedIn()){
-
-            Intent intent=new Intent(volunteerLogin.this, VDashboard.class);
-            startActivity(intent);
-
-        }
+//        if(sessionManager.isLoggedIn()){
+//
+//            Intent intent=new Intent(volunteerLogin.this, VDashboard.class);
+//            startActivity(intent);
+//
+//        }
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
