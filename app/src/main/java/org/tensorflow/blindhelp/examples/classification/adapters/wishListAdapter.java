@@ -3,6 +3,7 @@ package org.tensorflow.blindhelp.examples.classification.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +23,7 @@ public class wishListAdapter extends RecyclerView.Adapter<wishListAdapter.ViewHo
 
     public interface OnItemClickListener {
         void onItemClick(int position);
+        void onDeleteButtonClick(int position);
     }
 
     public void setOnItemClickListener(OnItemClickListener clickListener) {
@@ -44,7 +46,23 @@ public class wishListAdapter extends RecyclerView.Adapter<wishListAdapter.ViewHo
         holder.pname.setText(request.getDetaillsID());
         holder.pqnt.setText(request.getQuantityID());
 
+
+
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mListener != null) {
+                    int position = holder.getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        mListener.onDeleteButtonClick(position);
+                    }
+                }
+            }
+        });
     }
+
+
+
 
     @Override
     public int getItemCount() {
@@ -54,11 +72,13 @@ public class wishListAdapter extends RecyclerView.Adapter<wishListAdapter.ViewHo
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView pname;
         TextView pqnt;
+        Button btnDelete;
 
         public ViewHolder(View itemView, final OnItemClickListener clickListener) {
             super(itemView);
             pname = itemView.findViewById(R.id.pname);
             pqnt = itemView.findViewById(R.id.pqnt);
+            btnDelete = itemView.findViewById(R.id.btnDelete);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
