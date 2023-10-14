@@ -32,7 +32,7 @@
             android:id="@+id/addIDTxt"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="14dp"
             android:background="@drawable/rounded"
             android:ems="10"
             android:hint="Enter Product ID"
@@ -53,7 +53,7 @@
             android:id="@+id/addProductTxt"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="14dp"
             android:background="@drawable/rounded"
             android:ems="10"
             android:hint="Enter Product Name"
@@ -74,7 +74,7 @@
             android:id="@+id/addPriceTxt"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="14dp"
             android:background="@drawable/rounded"
             android:ems="10"
             android:hint="Enter Product Price"
@@ -94,6 +94,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="58dp"
+            android:layout_marginBottom="14dp"
             android:background="@drawable/rounded">
 
             <EditText
@@ -102,7 +103,7 @@
                 android:layout_height="48dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="14dp"
                 android:background="@color/common_google_signin_btn_text_dark_default"
                 android:ems="10"
                 android:enabled="false"
@@ -133,6 +134,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="55dp"
+            android:layout_marginBottom="14dp"
             android:background="@drawable/rounded"
             android:orientation="horizontal">
 
@@ -142,7 +144,7 @@
                 android:layout_height="48dp"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="14dp"
                 android:background="@color/white"
                 android:ems="10"
                 android:enabled="false"

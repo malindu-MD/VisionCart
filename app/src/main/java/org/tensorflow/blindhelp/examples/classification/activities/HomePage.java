@@ -113,7 +113,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener,
             return true;
         }
         else if (view.getId() == R.id.qrCode) {
-            intent = new Intent(this, admin_product_view.class);
+            intent = new Intent(this, Camera.class);
             startActivity(intent);
             return true;
         }

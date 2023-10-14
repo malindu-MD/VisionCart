@@ -27,6 +27,7 @@ import org.tensorflow.lite.examples.classification.R;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class ProductAdapter extends FirebaseRecyclerAdapter<Products,ProductAdapter.myViewHolder> {
 
@@ -61,9 +62,9 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Products,ProductAdap
                 // dialogPlus.show();
                 View myview=dialogPlus.getHolderView();
                 final EditText name=myview.findViewById(R.id.txtName);
-                final EditText mfgDate=myview.findViewById(R.id.txtPrice);
-                final EditText expDate=myview.findViewById(R.id.txtMFG);
-                final EditText price=myview.findViewById(R.id.txtEXP);
+                final EditText mfgDate=myview.findViewById(R.id. txtMFG);
+                final EditText expDate=myview.findViewById(R.id.txtEXP);
+                final EditText price=myview.findViewById(R.id.txtPrice);
                 final EditText details=myview.findViewById(R.id.txtDetails);
 
                 Button btnUpdate =myview.findViewById(R.id.btnUpdate);
@@ -80,30 +81,59 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Products,ProductAdap
                 btnUpdate.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Map<String,Object> map=new HashMap<>();
+                            String newName = name.getText().toString().trim();
+                            String newMfgDate = mfgDate.getText().toString().trim();
+                            String newExpDate = expDate.getText().toString().trim();
+                            String newPrice = price.getText().toString().trim();
+                            String newDetails = details.getText().toString().trim();
 
-                        map.put("pName",name.getText().toString());
-                        map.put("pMfgDate",mfgDate.getText().toString());
-                        map.put("pExpDate",expDate.getText().toString());
-                        map.put("pPrice",price.getText().toString());
-                        map.put("pDetails",details.getText().toString());
+                            if (newName.isEmpty() || newMfgDate.isEmpty() || newExpDate.isEmpty() || newPrice.isEmpty() || newDetails.isEmpty()) {
+                                StringBuilder emptyFields = new StringBuilder("Please fill in the following fields:");
 
-                        FirebaseDatabase.getInstance().getReference().child("products")
-                                .child(getRef(position).getKey()).updateChildren(map)
-                                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void aVoid) {
-                                        Toast.makeText(holder.pName.getContext(),"Updated successfully..",Toast.LENGTH_SHORT).show();
-                                        dialogPlus.dismiss();
-                                    }
-                                })
-                                .addOnFailureListener(new OnFailureListener() {
-                                    @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(holder.pName.getContext(),"Error while Updating..",Toast.LENGTH_SHORT).show();
-                                        dialogPlus.dismiss();
-                                    }
-                                });
+                                if (newName.isEmpty()) {
+                                    emptyFields.append("\n-Product Name");
+                                }
+                                if (newMfgDate.isEmpty()) {
+                                    emptyFields.append("\n- Manufacturing Date");
+                                }
+                                if (newExpDate.isEmpty()) {
+                                    emptyFields.append("\n- Expiry Date");
+                                }
+                                if (newPrice.isEmpty()) {
+                                    emptyFields.append("\n- Price");
+                                }
+                                if (newDetails.isEmpty()) {
+                                    emptyFields.append("\n- Details");
+                                }
+                                Toast.makeText(holder.pName.getContext(), emptyFields.toString(), Toast.LENGTH_LONG).show();
+
+                            }  else {
+
+                                Map<String, Object> map = new HashMap<>();
+
+                                map.put("pName", name.getText().toString());
+                                map.put("pMfgDate", mfgDate.getText().toString());
+                                map.put("pExpDate", expDate.getText().toString());
+                                map.put("pPrice", price.getText().toString());
+                                map.put("pDetails", details.getText().toString());
+
+                                FirebaseDatabase.getInstance().getReference().child("products")
+                                        .child(getRef(position).getKey()).updateChildren(map)
+                                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                Toast.makeText(holder.pName.getContext(), "Updated successfully..", Toast.LENGTH_SHORT).show();
+                                                dialogPlus.dismiss();
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Toast.makeText(holder.pName.getContext(), "Error while Updating..", Toast.LENGTH_SHORT).show();
+                                                dialogPlus.dismiss();
+                                            }
+                                        });
+                            }
 
 
 
@@ -124,7 +154,7 @@ public class ProductAdapter extends FirebaseRecyclerAdapter<Products,ProductAdap
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
                         FirebaseDatabase.getInstance().getReference().child("products")
-                                .child(getRef(position).getKey()).removeValue();
+                                .child(Objects.requireNonNull(getRef(position).getKey())).removeValue();
                     }
                 });
 

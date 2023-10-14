@@ -34,7 +34,7 @@
         app:tint="@color/white" />
 
     <TextView
-        android:id="@+id/textView43"
+        android:id="@+id/pdfGenBtn"
         android:layout_width="436dp"
         android:layout_height="48dp"
         android:layout_marginBottom="4dp"
